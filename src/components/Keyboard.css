@@ -1,0 +1,48 @@
+.keyboard-wrapper {
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.keyboard-half {
+  position: relative;
+  width: 420px;
+  height: 300px;
+  background: rgba(30, 41, 59, 0.4);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.key-position {
+  position: absolute;
+  /* KeyCap handles its own size (64x64) */
+}
+
+/* Left Hand */
+.key-pos-10 { left: 20px; top: 120px; } /* Pinky */
+.key-pos-8 { left: 90px; top: 60px; }  /* Ring top */
+.key-pos-9 { left: 90px; top: 130px; } /* Ring bot */
+.key-pos-6 { left: 160px; top: 30px; }  /* Middle top */
+.key-pos-7 { left: 160px; top: 100px; } /* Middle bot */
+.key-pos-4 { left: 230px; top: 60px; }  /* Index top */
+.key-pos-5 { left: 230px; top: 130px; } /* Index bot */
+
+.key-pos-3 { left: 200px; top: 220px; } /* Thumb inner */
+.key-pos-2 { left: 270px; top: 230px; } /* Thumb mid */
+.key-pos-1 { left: 340px; top: 245px; transform: rotate(15deg); } /* Thumb outer */
+
+/* Right Hand */
+.key-pos-20 { left: 336px; top: 120px; } /* Pinky */
+.key-pos-18 { left: 266px; top: 60px; }  /* Ring top */
+.key-pos-19 { left: 266px; top: 130px; } /* Ring bot */
+.key-pos-16 { left: 196px; top: 30px; }  /* Middle top */
+.key-pos-17 { left: 196px; top: 100px; } /* Middle bot */
+.key-pos-14 { left: 126px; top: 60px; }  /* Index top */
+.key-pos-15 { left: 126px; top: 130px; } /* Index bot */
+
+.key-pos-13 { left: 156px; top: 220px; } /* Thumb inner */
+.key-pos-12 { left: 86px; top: 230px; }  /* Thumb mid */
+.key-pos-11 { left: 16px; top: 245px; transform: rotate(-15deg); } /* Thumb outer */
