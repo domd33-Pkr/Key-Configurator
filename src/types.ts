@@ -5,6 +5,16 @@ export interface KeySlotMap {
   layer_hold?: string;
 }
 
+export interface LayerConfig {
+  id: number;
+  name: string;
+}
+
+export interface KeyLayerBinding {
+  tap?: string;
+  hold?: string;
+}
+
 export interface KeyConfig {
   index: number;
   row: number;
@@ -12,12 +22,14 @@ export interface KeyConfig {
   hand: "left" | "right";
   finger: "thumb" | "index" | "middle" | "ring" | "pinky";
   is_layer_key: boolean;
-  slots: KeySlotMap;
+  slots?: KeySlotMap; // For old layouts compatibility
+  bindings?: Record<number, KeyLayerBinding>;
 }
 
 export interface KeyboardLayoutData {
   keys: KeyConfig[];
-  char_to_key_slot: Record<string, [number, string]>;
-  layer_key_index: number;
-  lockedSlots: string[];
+  layers?: LayerConfig[];
+  char_to_key_slot?: Record<string, [number, string]>;
+  layer_key_index?: number;
+  lockedSlots?: string[];
 }

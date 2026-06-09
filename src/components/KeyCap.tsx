@@ -5,16 +5,30 @@ import './KeyCap.css';
 interface KeyCapProps {
   keyData: KeyConfig;
   isSelected: boolean;
+  selectedLayerId: number;
   onClick: (keyData: KeyConfig) => void;
 }
 
-export const KeyCap: React.FC<KeyCapProps> = ({ keyData, isSelected, onClick }) => {
-  const { slots, index } = keyData;
+export const KeyCap: React.FC<KeyCapProps> = ({ keyData, isSelected, selectedLayerId, onClick }) => {
+  const { index } = keyData;
 
-  const displayBaseTap = slots.base_tap || '';
-  const displayBaseHold = slots.base_hold || '';
-  const displayLayerTap = slots.layer_tap || '';
-  const displayLayerHold = slots.layer_hold || '';
+  let displayTap = '';
+  let displayHold = '';
+
+  if (keyData.bindings) {
+    const binding = keyData.bindings[selectedLayerId] || {};
+    displayTap = binding.tap || '';
+    displayHold = binding.hold || '';
+  } else if (keyData.slots) {
+    // Fallback for backward compatibility
+    if (selectedLayerId === 0) {
+      displayTap = keyData.slots.base_tap || '';
+      displayHold = keyData.slots.base_hold || '';
+    } else if (selectedLayerId === 1) {
+      displayTap = keyData.slots.layer_tap || '';
+      displayHold = keyData.slots.layer_hold || '';
+    }
+  }
 
   return (
     <div 
@@ -23,10 +37,8 @@ export const KeyCap: React.FC<KeyCapProps> = ({ keyData, isSelected, onClick }) 
     >
       <div className="key-content">
         <span className="key-index">{index}</span>
-        {displayBaseTap && <span className="slot-base-tap">{displayBaseTap}</span>}
-        {displayBaseHold && <span className="slot-base-hold">{displayBaseHold}</span>}
-        {displayLayerTap && <span className="slot-layer-tap">{displayLayerTap}</span>}
-        {displayLayerHold && <span className="slot-layer-hold">{displayLayerHold}</span>}
+        {displayTap && <span className="slot-tap">{displayTap}</span>}
+        {displayHold && <span className="slot-hold">{displayHold}</span>}
       </div>
     </div>
   );
