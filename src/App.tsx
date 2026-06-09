@@ -65,10 +65,29 @@ const migrateLayoutData = (data: any): KeyboardLayoutData => {
   };
 };
 
+const LOCAL_STORAGE_KEY = 'zmk_key_configurator_layout';
+
 function App() {
-  const [layoutData, setLayoutData] = useState<KeyboardLayoutData>(() => migrateLayoutData(defaultLayoutData));
+  const [layoutData, setLayoutData] = useState<KeyboardLayoutData>(() => {
+    const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        if (parsed && parsed.keys) {
+          return migrateLayoutData(parsed);
+        }
+      } catch (e) {
+        console.error("Failed to parse saved layout from localStorage", e);
+      }
+    }
+    return migrateLayoutData(defaultLayoutData);
+  });
   const [selectedKeyIndex, setSelectedKeyIndex] = useState<number | null>(null);
   const [selectedLayerId, setSelectedLayerId] = useState<number>(0);
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(layoutData));
+  }, [layoutData]);
 
   const selectedKey = layoutData.keys.find(k => k.index === selectedKeyIndex) || null;
   const layersList = layoutData.layers || [];
