@@ -2,6 +2,8 @@ import React from 'react';
 import type { KeyConfig } from '../types';
 import './KeyCap.css';
 
+import { getZmkBindingString, parseBindingForDisplay } from '../utils/zmkUtils';
+
 interface KeyCapProps {
   keyData: KeyConfig;
   isSelected: boolean;
@@ -12,23 +14,27 @@ interface KeyCapProps {
 export const KeyCap: React.FC<KeyCapProps> = ({ keyData, isSelected, selectedLayerId, onClick }) => {
   const { index } = keyData;
 
-  let displayTap = '';
-  let displayHold = '';
+  let bindingStr = '';
 
   if (keyData.bindings) {
     const binding = keyData.bindings[selectedLayerId] || {};
-    displayTap = binding.tap || '';
-    displayHold = binding.hold || '';
+    bindingStr = getZmkBindingString(binding);
   } else if (keyData.slots) {
     // Fallback for backward compatibility
     if (selectedLayerId === 0) {
-      displayTap = keyData.slots.base_tap || '';
-      displayHold = keyData.slots.base_hold || '';
+      bindingStr = getZmkBindingString({
+        tap: keyData.slots.base_tap,
+        hold: keyData.slots.base_hold
+      });
     } else if (selectedLayerId === 1) {
-      displayTap = keyData.slots.layer_tap || '';
-      displayHold = keyData.slots.layer_hold || '';
+      bindingStr = getZmkBindingString({
+        tap: keyData.slots.layer_tap,
+        hold: keyData.slots.layer_hold
+      });
     }
   }
+
+  const { tap: displayTap, hold: displayHold } = parseBindingForDisplay(bindingStr);
 
   return (
     <div 

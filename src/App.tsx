@@ -131,10 +131,10 @@ function App() {
           setLayoutData(migrated);
           setSelectedKeyIndex(null);
         } else {
-          alert("Fichier JSON invalide. Il manque la propriété 'keys'.");
+          alert("Invalid JSON file. Missing 'keys' property.");
         }
       } catch (err) {
-        alert("Erreur lors de la lecture du fichier JSON.");
+        alert("Error reading JSON file.");
       }
     };
     reader.readAsText(file);
@@ -151,7 +151,7 @@ function App() {
         <div style={{ display: 'flex', gap: 12 }}>
           <label className="btn btn-secondary">
             <Upload size={18} />
-            Importer JSON
+            Import JSON
             <input 
               type="file" 
               accept=".json" 
@@ -161,7 +161,7 @@ function App() {
           </label>
           <button className="btn btn-primary" onClick={handleExport}>
             <Download size={18} />
-            Exporter
+            Export
           </button>
         </div>
       </header>
@@ -169,7 +169,7 @@ function App() {
       <main className="app-content">
         <div className="keyboard-container" style={{ display: 'flex', flexDirection: 'column', gap: 24, flex: 1 }}>
           <div className="layer-selector-bar glass-panel" style={{ display: 'flex', alignItems: 'center', gap: 16, padding: '16px 24px', width: '100%', borderRadius: 16 }}>
-            <span style={{ fontWeight: 600, color: 'var(--text-secondary)', fontSize: 14 }}>Sélection Layer :</span>
+            <span style={{ fontWeight: 600, color: 'var(--text-secondary)', fontSize: 14 }}>Select Layer:</span>
             <select 
               value={selectedLayerId} 
               onChange={(e) => setSelectedLayerId(Number(e.target.value))}
@@ -189,7 +189,7 @@ function App() {
               ))}
             </select>
 
-            <span style={{ fontWeight: 600, color: 'var(--text-secondary)', fontSize: 14, marginLeft: 'auto' }}>Renommer :</span>
+            <span style={{ fontWeight: 600, color: 'var(--text-secondary)', fontSize: 14, marginLeft: 'auto' }}>Rename:</span>
             <input 
               type="text" 
               value={layersList.find(l => l.id === selectedLayerId)?.name || ''} 
@@ -219,9 +219,11 @@ function App() {
 
         <div className="editor-container">
           <EditorPanel 
+            key={selectedKey ? `${selectedKey.index}-${selectedLayerId}` : 'empty'}
             selectedKey={selectedKey} 
             selectedLayerId={selectedLayerId}
             selectedLayerName={selectedLayerName}
+            layers={layoutData.layers || []}
             onUpdateKey={handleUpdateKey}
             onClose={() => setSelectedKeyIndex(null)}
           />
