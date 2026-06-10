@@ -8,9 +8,27 @@ interface KeyboardProps {
   selectedKeyIndex: number | null;
   selectedLayerId: number;
   onKeySelect: (keyData: KeyConfig) => void;
+  // Simulation props
+  isSimMode?: boolean;
+  heldKeys?: Set<number>;
+  lockedKeys?: Set<number>;
+  onSimDown?: (keyData: KeyConfig) => void;
+  onSimUp?: (keyData: KeyConfig) => void;
+  onSimRightClick?: (keyData: KeyConfig) => void;
 }
 
-export const Keyboard: React.FC<KeyboardProps> = ({ keys, selectedKeyIndex, selectedLayerId, onKeySelect }) => {
+export const Keyboard: React.FC<KeyboardProps> = ({ 
+  keys, 
+  selectedKeyIndex, 
+  selectedLayerId, 
+  onKeySelect,
+  isSimMode = false,
+  heldKeys = new Set(),
+  lockedKeys = new Set(),
+  onSimDown,
+  onSimUp,
+  onSimRightClick
+}) => {
   const leftKeys = keys.filter(k => k.hand === 'left' || k.index <= 10);
   const rightKeys = keys.filter(k => k.hand === 'right' || k.index > 10);
 
@@ -24,6 +42,12 @@ export const Keyboard: React.FC<KeyboardProps> = ({ keys, selectedKeyIndex, sele
               isSelected={selectedKeyIndex === k.index} 
               selectedLayerId={selectedLayerId}
               onClick={onKeySelect} 
+              isSimMode={isSimMode}
+              isHeld={heldKeys.has(k.index)}
+              isLocked={lockedKeys.has(k.index)}
+              onSimDown={onSimDown}
+              onSimUp={onSimUp}
+              onSimRightClick={onSimRightClick}
             />
           </div>
         ))}
@@ -37,6 +61,12 @@ export const Keyboard: React.FC<KeyboardProps> = ({ keys, selectedKeyIndex, sele
               isSelected={selectedKeyIndex === k.index} 
               selectedLayerId={selectedLayerId}
               onClick={onKeySelect} 
+              isSimMode={isSimMode}
+              isHeld={heldKeys.has(k.index)}
+              isLocked={lockedKeys.has(k.index)}
+              onSimDown={onSimDown}
+              onSimUp={onSimUp}
+              onSimRightClick={onSimRightClick}
             />
           </div>
         ))}
@@ -44,3 +74,4 @@ export const Keyboard: React.FC<KeyboardProps> = ({ keys, selectedKeyIndex, sele
     </div>
   );
 };
+

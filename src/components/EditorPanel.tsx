@@ -105,6 +105,7 @@ const BEHAVIORS = [
   { value: '&ht', label: 'Hold / Tap (ht)', desc: 'Hold: action 1 | Tap: action 2' },
   { value: '&mo', label: 'Momentary Layer (mo)', desc: 'Activates a layer while held' },
   { value: '&lt', label: 'Layer / Tap (lt)', desc: 'Hold: activate layer | Tap: press key' },
+  { value: '&mtl', label: 'Momentary / Tap Layer (mtl)', desc: 'Hold: activate layer | Tap: sticky layer' },
   { value: '&mt', label: 'Mod / Tap (mt)', desc: 'Hold: activate modifier | Tap: press key' },
   { value: '&to', label: 'To Layer (to)', desc: 'Permanently switches to a layer' },
   { value: '&tog', label: 'Toggle Layer (tog)', desc: 'Toggles a layer on/off per tap' },
@@ -533,6 +534,9 @@ export const EditorPanel: React.FC<EditorPanelProps> = ({
     } else if (newBehavior === '&lt') {
       binding.param1 = '0';
       binding.param2 = 'SPACE';
+    } else if (newBehavior === '&mtl') {
+      binding.param1 = '0';
+      binding.param2 = '0';
     } else if (newBehavior === '&mt') {
       binding.param1 = 'LSHIFT';
       binding.param2 = 'A';
@@ -716,6 +720,42 @@ export const EditorPanel: React.FC<EditorPanelProps> = ({
                 isListening={listeningField === 'param2'}
                 onStartListening={() => setListeningField('param2')}
               />
+            </div>
+          </div>
+        );
+
+      case '&mtl':
+        return (
+          <div style={{ display: 'flex', gap: 12 }}>
+            <div className="form-group" style={{ flex: 1 }}>
+              <label className="form-label">Layer (Hold)</label>
+              <select
+                className="form-input"
+                value={param1}
+                onChange={(e) => handleParamChange('param1', e.target.value)}
+                style={{ cursor: 'pointer' }}
+              >
+                {layers.map(layer => (
+                  <option key={layer.id} value={layer.id}>
+                    {layer.name} (layer {layer.id})
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="form-group" style={{ flex: 1 }}>
+              <label className="form-label">Layer (Tap)</label>
+              <select
+                className="form-input"
+                value={param2}
+                onChange={(e) => handleParamChange('param2', e.target.value)}
+                style={{ cursor: 'pointer' }}
+              >
+                {layers.map(layer => (
+                  <option key={layer.id} value={layer.id}>
+                    {layer.name} (layer {layer.id})
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
         );

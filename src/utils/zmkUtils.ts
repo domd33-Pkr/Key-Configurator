@@ -89,6 +89,8 @@ export const parseZmkBinding = (value: string): ZmkBinding => {
       return { behavior, param1: parts[1] || 'OUT_TOG' };
     case '&lt':
       return { behavior, param1: parts[1] || '0', param2: parts.slice(2).join(' ') };
+    case '&mtl':
+      return { behavior, param1: parts[1] || '0', param2: parts[2] || '0' };
     case '&mt':
       return { behavior, param1: parts[1] || 'LSHIFT', param2: parts.slice(2).join(' ') };
     case '&ht':
@@ -106,7 +108,7 @@ export const stringifyZmkBinding = (binding: ZmkBinding): string => {
   if (behavior === '&trans' || behavior === '&none') {
     return behavior;
   }
-  if (behavior === '&lt' || behavior === '&mt' || behavior === '&ht') {
+  if (behavior === '&lt' || behavior === '&mt' || behavior === '&ht' || behavior === '&mtl') {
     return `${behavior} ${param1 || ''} ${param2 || ''}`.trim();
   }
   return `${behavior} ${param1 || ''}`.trim();
@@ -171,6 +173,11 @@ export const parseBindingForDisplay = (bindingStr: string): { tap: string; hold:
       const holdLayer = `L${parts[1] || '0'}`;
       const tapKey = parts.slice(2).join(' ') || '';
       return { tap: tapKey, hold: holdLayer };
+    }
+    case '&mtl': {
+      const holdLayer = `L${parts[1] || '0'}`;
+      const tapLayer = `SL${parts[2] || '0'}`;
+      return { tap: tapLayer, hold: holdLayer };
     }
     case '&ht': {
       const holdArg = parts[1] || '';

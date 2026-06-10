@@ -66,3 +66,48 @@
   color: rgba(15, 23, 42, 0.4);
   font-weight: 500;
 }
+
+/* Simulation Mode Styles */
+.key-cap.sim-mode {
+  transition: all 0.1s ease-out;
+}
+
+.key-cap.sim-held {
+  background: linear-gradient(145deg, #3b82f6, #1d4ed8) !important;
+  border-color: #60a5fa !important;
+  border-bottom-color: #1e40af !important;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.4) !important;
+  transform: translateY(2px) !important;
+  border-bottom-width: 2px !important;
+}
+
+.key-cap.sim-held .key-content {
+  color: #ffffff !important;
+}
+
+.key-cap.sim-held .slot-hold {
+  color: #93c5fd !important;
+}
+
+.key-cap.sim-held .key-index {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.key-cap.sim-locked {
+  border-color: #f59e0b !important;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.3) !important;
+  animation: sim-lock-pulse 2s infinite ease-in-out;
+}
+
+@keyframes sim-lock-pulse {
+  0% {
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(245, 158, 11, 0.8), 0 0 2px 2px rgba(245, 158, 11, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+  }
+}
+

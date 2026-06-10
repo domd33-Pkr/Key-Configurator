@@ -9,9 +9,27 @@ interface KeyCapProps {
   isSelected: boolean;
   selectedLayerId: number;
   onClick: (keyData: KeyConfig) => void;
+  // Simulation props
+  isSimMode?: boolean;
+  isHeld?: boolean;
+  isLocked?: boolean;
+  onSimDown?: (keyData: KeyConfig) => void;
+  onSimUp?: (keyData: KeyConfig) => void;
+  onSimRightClick?: (keyData: KeyConfig) => void;
 }
 
-export const KeyCap: React.FC<KeyCapProps> = ({ keyData, isSelected, selectedLayerId, onClick }) => {
+export const KeyCap: React.FC<KeyCapProps> = ({ 
+  keyData, 
+  isSelected, 
+  selectedLayerId, 
+  onClick,
+  isSimMode = false,
+  isHeld = false,
+  isLocked = false,
+  onSimDown,
+  onSimUp,
+  onSimRightClick
+}) => {
   const { index } = keyData;
 
   let bindingStr = '';
@@ -36,10 +54,47 @@ export const KeyCap: React.FC<KeyCapProps> = ({ keyData, isSelected, selectedLay
 
   const { tap: displayTap, hold: displayHold } = parseBindingForDisplay(bindingStr);
 
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (isSimMode && e.button === 0 && onSimDown && !isLocked) {
+      onSimDown(keyData);
+    }
+  };
+
+  const handleMouseUp = (e: React.MouseEvent) => {
+    if (isSimMode && e.button === 0 && onSimUp && !isLocked) {
+      onSimUp(keyData);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (isSimMode && onSimUp && isHeld && !isLocked) {
+      onSimUp(keyData);
+    }
+  };
+
+  const handleContextMenu = (e: React.MouseEvent) => {
+    if (isSimMode) {
+      e.preventDefault();
+      if (onSimRightClick) {
+        onSimRightClick(keyData);
+      }
+    }
+  };
+
+  const handleClick = () => {
+    if (!isSimMode) {
+      onClick(keyData);
+    }
+  };
+
   return (
     <div 
-      className={`key-cap ${isSelected ? 'selected' : ''}`}
-      onClick={() => onClick(keyData)}
+      className={`key-cap ${isSelected ? 'selected' : ''} ${isHeld ? 'sim-held' : ''} ${isLocked ? 'sim-locked' : ''} ${isSimMode ? 'sim-mode' : ''}`}
+      onClick={handleClick}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseLeave}
+      onContextMenu={handleContextMenu}
     >
       <div className="key-content">
         <span className="key-index">{index}</span>
@@ -49,3 +104,4 @@ export const KeyCap: React.FC<KeyCapProps> = ({ keyData, isSelected, selectedLay
     </div>
   );
 };
+
