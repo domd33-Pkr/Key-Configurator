@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import type { KeyboardLayoutData, KeyConfig } from './types';
 import { Keyboard } from './components/Keyboard';
 import { EditorPanel } from './components/EditorPanel';
 import defaultLayoutData from './defaultLayout.json';
-import { Download, Upload, Keyboard as KeyboardIcon } from 'lucide-react';
+import { Download, Upload, Keyboard as KeyboardIcon, Undo, Redo } from 'lucide-react';
 import { parseZmkBinding, getZmkBindingString } from './utils/zmkUtils';
 
 const migrateLayoutData = (data: any): KeyboardLayoutData => {
@@ -140,6 +140,101 @@ function App() {
   const [selectedKeyIndex, setSelectedKeyIndex] = useState<number | null>(null);
   const [selectedLayerId, setSelectedLayerId] = useState<number>(0);
 
+  // Undo/Redo history states
+  const [past, setPast] = useState<KeyboardLayoutData[]>([]);
+  const [future, setFuture] = useState<KeyboardLayoutData[]>([]);
+
+  const layoutDataRef = useRef(layoutData);
+  const pastRef = useRef(past);
+  const futureRef = useRef(future);
+
+  useEffect(() => {
+    layoutDataRef.current = layoutData;
+    pastRef.current = past;
+    futureRef.current = future;
+  }, [layoutData, past, future]);
+
+  const pushToHistoryAndSet = (nextState: KeyboardLayoutData | ((prev: KeyboardLayoutData) => KeyboardLayoutData)) => {
+    setLayoutData(prev => {
+      const resolvedNext = typeof nextState === 'function' ? nextState(prev) : nextState;
+      
+      if (JSON.stringify(prev) !== JSON.stringify(resolvedNext)) {
+        setPast(history => {
+          // Check if we are just renaming a layer and the last history entry was also a layer rename
+          const lastEntry = history[history.length - 1];
+          const keysAreIdentical = lastEntry && JSON.stringify(lastEntry.keys) === JSON.stringify(prev.keys);
+          
+          if (keysAreIdentical) {
+            // Replace the last entry with the state BEFORE the rename started, so undoing goes back to original name
+            return history; 
+          }
+          
+          const updated = [...history, prev];
+          if (updated.length > 50) {
+            return updated.slice(updated.length - 50);
+          }
+          return updated;
+        });
+        setFuture([]);
+      }
+      
+      return resolvedNext;
+    });
+  };
+
+  const undo = useCallback(() => {
+    if (pastRef.current.length === 0) return;
+    
+    const history = pastRef.current;
+    const previous = history[history.length - 1];
+    const newPast = history.slice(0, -1);
+    
+    setFuture(fut => [layoutDataRef.current, ...fut]);
+    setPast(newPast);
+    setLayoutData(previous);
+  }, []);
+
+  const redo = useCallback(() => {
+    if (futureRef.current.length === 0) return;
+    
+    const fut = futureRef.current;
+    const next = fut[0];
+    const newFuture = fut.slice(1);
+    
+    setPast(history => [...history, layoutDataRef.current]);
+    setFuture(newFuture);
+    setLayoutData(next);
+  }, []);
+
+  // Keyboard shortcut handler for Undo/Redo
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Don't trigger undo/redo if the user is typing in an input field
+      if (
+        document.activeElement?.tagName === 'INPUT' ||
+        document.activeElement?.tagName === 'TEXTAREA'
+      ) {
+        return;
+      }
+
+      const isUndo = (e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z' && !e.shiftKey;
+      const isRedo = 
+        ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'y') ||
+        ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z' && e.shiftKey);
+
+      if (isUndo) {
+        e.preventDefault();
+        undo();
+      } else if (isRedo) {
+        e.preventDefault();
+        redo();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [undo, redo]);
+
   // Simulation States
   const [isSimMode, setIsSimMode] = useState<boolean>(false);
   const [simText, setSimText] = useState<string>('');
@@ -175,14 +270,14 @@ function App() {
   const selectedLayerName = layersList.find(l => l.id === selectedLayerId)?.name || `Layer ${selectedLayerId + 1}`;
 
   const handleUpdateKey = (updatedKey: KeyConfig) => {
-    setLayoutData(prev => {
+    pushToHistoryAndSet(prev => {
       const newKeys = prev.keys.map(k => k.index === updatedKey.index ? updatedKey : k);
       return { ...prev, keys: newKeys };
     });
   };
 
   const handleRenameLayer = (layerId: number, newName: string) => {
-    setLayoutData(prev => {
+    pushToHistoryAndSet(prev => {
       const newLayers = (prev.layers || []).map(l => l.id === layerId ? { ...l, name: newName } : l);
       return { ...prev, layers: newLayers };
     });
@@ -209,7 +304,7 @@ function App() {
         const parsed = JSON.parse(event.target?.result as string);
         if (parsed.keys && Array.isArray(parsed.keys)) {
           const migrated = migrateLayoutData(parsed);
-          setLayoutData(migrated);
+          pushToHistoryAndSet(migrated);
           setSelectedKeyIndex(null);
         } else {
           alert("Invalid JSON file. Missing 'keys' property.");
@@ -695,6 +790,48 @@ function App() {
             >
               <KeyboardIcon size={14} />
               Mode Essai
+            </button>
+          </div>
+
+          {/* Undo / Redo controls */}
+          <div style={{ display: 'flex', gap: 8, marginRight: 8 }}>
+            <button 
+              className="btn btn-secondary" 
+              onClick={undo}
+              disabled={past.length === 0}
+              title="Undo (Ctrl+Z)"
+              style={{
+                padding: '8px 12px',
+                borderRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 4,
+                fontSize: '13px',
+                height: '38px',
+              }}
+            >
+              <Undo size={16} />
+              Undo
+            </button>
+            <button 
+              className="btn btn-secondary" 
+              onClick={redo}
+              disabled={future.length === 0}
+              title="Redo (Ctrl+Y)"
+              style={{
+                padding: '8px 12px',
+                borderRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 4,
+                fontSize: '13px',
+                height: '38px',
+              }}
+            >
+              <Redo size={16} />
+              Redo
             </button>
           </div>
 

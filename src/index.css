@@ -183,3 +183,13 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--border-color);
 }
+
+/* Disabled buttons */
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+  pointer-events: none;
+}
+
