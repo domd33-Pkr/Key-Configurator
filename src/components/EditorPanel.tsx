@@ -485,9 +485,22 @@ export const EditorPanel: React.FC<EditorPanelProps> = ({
         const currentBinding = parseZmkBinding(currentBindingStr);
         const updated = { ...currentBinding };
         if (listeningField === 'param1') {
-          updated.param1 = zmkKey;
+          if (updated.behavior === '&kp' || updated.behavior === '&kt') {
+            const kpParam = parseKeyParam(updated.param1 || '');
+            updated.param1 = stringifyKeyParam(zmkKey, kpParam.modifier);
+          } else if (updated.behavior === '&ht') {
+            const holdParam = parseKeyParam(updated.param1 || '');
+            updated.param1 = stringifyKeyParam(zmkKey, holdParam.modifier);
+          } else {
+            updated.param1 = zmkKey;
+          }
         } else {
-          updated.param2 = zmkKey;
+          if (updated.behavior === '&ht') {
+            const tapParam = parseKeyParam(updated.param2 || '');
+            updated.param2 = stringifyKeyParam(zmkKey, tapParam.modifier);
+          } else {
+            updated.param2 = zmkKey;
+          }
         }
         handleChange(stringifyZmkBinding(updated));
       }
@@ -570,20 +583,43 @@ export const EditorPanel: React.FC<EditorPanelProps> = ({
 
     switch (behavior) {
       case '&kp':
-      case '&kt':
+      case '&kt': {
+        const kpParam = parseKeyParam(param1);
         return (
-          <div className="form-group">
-            <label className="form-label">Keycode</label>
-            <SearchableSelect
-              value={param1}
-              onChange={(val) => handleParamChange('param1', val)}
-              options={ZMK_KEYCODES}
-              placeholder="Search for a key..."
-              isListening={listeningField === 'param1'}
-              onStartListening={() => setListeningField('param1')}
-            />
+          <div style={{ display: 'flex', gap: 12 }}>
+            <div className="form-group" style={{ flex: 1.2 }}>
+              <label className="form-label">Modifier</label>
+              <select
+                className="form-input"
+                value={kpParam.modifier}
+                onChange={(e) => {
+                  const updatedVal = stringifyKeyParam(kpParam.keycode, e.target.value);
+                  handleParamChange('param1', updatedVal);
+                }}
+                style={{ cursor: 'pointer' }}
+              >
+                {MODIFIERS.map(mod => (
+                  <option key={mod.value} value={mod.value}>{mod.label}</option>
+                ))}
+              </select>
+            </div>
+            <div className="form-group" style={{ flex: 1.5 }}>
+              <label className="form-label">Keycode</label>
+              <SearchableSelect
+                value={kpParam.keycode}
+                onChange={(val) => {
+                  const updatedVal = stringifyKeyParam(val, kpParam.modifier);
+                  handleParamChange('param1', updatedVal);
+                }}
+                options={ZMK_KEYCODES}
+                placeholder="Search for a key..."
+                isListening={listeningField === 'param1'}
+                onStartListening={() => setListeningField('param1')}
+              />
+            </div>
           </div>
         );
+      }
 
       case '&mo':
       case '&to':
