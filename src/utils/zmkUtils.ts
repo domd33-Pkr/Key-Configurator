@@ -122,9 +122,14 @@ export const parseKeyParam = (param: string): { keycode: string; modifier: strin
 
   const match = trimmed.match(/^([A-Z0-9_]+)\((.*)\)$/);
   if (match) {
+    let mod = match[1];
+    if (mod === 'LSHIFT') mod = 'LSFT';
+    if (mod === 'LCTRL') mod = 'LCTL';
+    if (mod === 'RSHIFT') mod = 'RSFT';
+    if (mod === 'RCTRL') mod = 'RCTL';
     return {
       keycode: match[2],
-      modifier: match[1]
+      modifier: mod
     };
   }
 

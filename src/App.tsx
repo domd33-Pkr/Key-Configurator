@@ -76,7 +76,7 @@ const SHIFT_MAP: Record<string, string> = {
   '/': '?'
 };
 
-const MODIFIERS = ['LSHIFT', 'RSHIFT', 'LCTRL', 'RCTRL', 'LALT', 'RALT', 'LGUI', 'RGUI', 'LS', 'LC', 'LA', 'LG'];
+const MODIFIERS = ['LSHIFT', 'RSHIFT', 'LCTRL', 'RCTRL', 'LALT', 'RALT', 'LGUI', 'RGUI', 'LS', 'LC', 'LA', 'LG', 'LSFT', 'LCTL', 'RSFT', 'RCTL'];
 
 const isModifier = (keycode: string): boolean => {
   return MODIFIERS.includes(keycode.toUpperCase());
@@ -84,9 +84,14 @@ const isModifier = (keycode: string): boolean => {
 
 const parseKeyParam = (param: string) => {
   param = param.trim();
-  const shiftMatch = param.match(/^([A-Z_]+)\((.+)\)$/);
+  const shiftMatch = param.match(/^([A-ZFTL_]+)\((.+)\)$/);
   if (shiftMatch) {
-    return { modifier: shiftMatch[1], keycode: shiftMatch[2] };
+    let mod = shiftMatch[1];
+    if (mod === 'LSHIFT') mod = 'LSFT';
+    if (mod === 'LCTRL') mod = 'LCTL';
+    if (mod === 'RSHIFT') mod = 'RSFT';
+    if (mod === 'RCTRL') mod = 'RCTL';
+    return { modifier: mod, keycode: shiftMatch[2] };
   }
   if (isModifier(param)) {
     return { modifier: param, keycode: 'none' };

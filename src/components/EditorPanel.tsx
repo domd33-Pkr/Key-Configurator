@@ -127,12 +127,12 @@ const MODIFIERS = [
   { value: 'LC', label: 'Control (LC)' },
   { value: 'LA', label: 'Alt / Option (LA)' },
   { value: 'LG', label: 'GUI / Win / Cmd (LG)' },
-  { value: 'LSHIFT', label: 'Left Shift (LSHIFT)' },
-  { value: 'LCTRL', label: 'Left Control (LCTRL)' },
+  { value: 'LSFT', label: 'Left Shift (LSFT)' },
+  { value: 'LCTL', label: 'Left Control (LCTL)' },
   { value: 'LALT', label: 'Left Alt / Option (LALT)' },
   { value: 'LGUI', label: 'Left GUI / Win / Cmd (LGUI)' },
-  { value: 'RSHIFT', label: 'Right Shift (RSHIFT)' },
-  { value: 'RCTRL', label: 'Right Control (RCTRL)' },
+  { value: 'RSFT', label: 'Right Shift (RSFT)' },
+  { value: 'RCTL', label: 'Right Control (RCTL)' },
   { value: 'RALT', label: 'Right Alt / AltGr (RALT)' },
   { value: 'RGUI', label: 'Right GUI / Win / Cmd (RGUI)' }
 ];
@@ -476,40 +476,72 @@ export const EditorPanel: React.FC<EditorPanelProps> = ({
   useEffect(() => {
     if (!listeningField) return;
 
+    const isModifierKeycode = (k: string) => {
+      return ['LSHIFT', 'RSHIFT', 'LCTRL', 'RCTRL', 'LALT', 'RALT', 'LGUI', 'RGUI'].includes(k);
+    };
+
+    let lastModifierKey = '';
+
+    const finalizeCapture = (keycode: string, modifier: string) => {
+      const currentBinding = parseZmkBinding(currentBindingStr);
+      const updated = { ...currentBinding };
+      if (listeningField === 'param1') {
+        if (updated.behavior === '&kp' || updated.behavior === '&kt') {
+          updated.param1 = stringifyKeyParam(keycode, modifier);
+        } else if (updated.behavior === '&ht') {
+          updated.param1 = stringifyKeyParam(keycode, modifier);
+        } else {
+          updated.param1 = keycode;
+        }
+      } else {
+        if (updated.behavior === '&ht') {
+          updated.param2 = stringifyKeyParam(keycode, modifier);
+        } else {
+          updated.param2 = keycode;
+        }
+      }
+      handleChange(stringifyZmkBinding(updated));
+      setListeningField(null);
+    };
+
     const handleKeyDown = (e: KeyboardEvent) => {
       e.preventDefault();
       e.stopPropagation();
 
       const zmkKey = mapEventToZmkKeycode(e);
-      if (zmkKey) {
-        const currentBinding = parseZmkBinding(currentBindingStr);
-        const updated = { ...currentBinding };
-        if (listeningField === 'param1') {
-          if (updated.behavior === '&kp' || updated.behavior === '&kt') {
-            const kpParam = parseKeyParam(updated.param1 || '');
-            updated.param1 = stringifyKeyParam(zmkKey, kpParam.modifier);
-          } else if (updated.behavior === '&ht') {
-            const holdParam = parseKeyParam(updated.param1 || '');
-            updated.param1 = stringifyKeyParam(zmkKey, holdParam.modifier);
-          } else {
-            updated.param1 = zmkKey;
-          }
-        } else {
-          if (updated.behavior === '&ht') {
-            const tapParam = parseKeyParam(updated.param2 || '');
-            updated.param2 = stringifyKeyParam(zmkKey, tapParam.modifier);
-          } else {
-            updated.param2 = zmkKey;
-          }
-        }
-        handleChange(stringifyZmkBinding(updated));
+      if (!zmkKey) return;
+
+      if (isModifierKeycode(zmkKey)) {
+        lastModifierKey = zmkKey;
+        return;
       }
-      setListeningField(null);
+
+      // Check for modifier keys held down
+      let modifier = 'none';
+      if (e.ctrlKey) modifier = 'LC';
+      else if (e.shiftKey) modifier = 'LS';
+      else if (e.altKey) modifier = 'LA';
+      else if (e.metaKey) modifier = 'LG';
+
+      finalizeCapture(zmkKey, modifier);
+    };
+
+    const handleKeyUp = (e: KeyboardEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const zmkKey = mapEventToZmkKeycode(e);
+      if (zmkKey && isModifierKeycode(zmkKey) && lastModifierKey === zmkKey) {
+        // User tapped the modifier key itself without pressing any other key
+        finalizeCapture(zmkKey, 'none');
+      }
     };
 
     window.addEventListener('keydown', handleKeyDown, true);
+    window.addEventListener('keyup', handleKeyUp, true);
     return () => {
       window.removeEventListener('keydown', handleKeyDown, true);
+      window.removeEventListener('keyup', handleKeyUp, true);
     };
   }, [listeningField, currentBindingStr]);
 

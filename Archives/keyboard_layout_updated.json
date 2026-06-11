@@ -1,0 +1,1550 @@
+{
+  "keys": [
+    {
+      "index": 1,
+      "row": 2,
+      "col": 4,
+      "hand": "left",
+      "finger": "thumb",
+      "is_layer_key": false,
+      "bindings": {
+        "0": {
+          "tap": "s",
+          "hold": "S"
+        },
+        "1": {
+          "tap": "&mtl 5 2",
+          "hold": ""
+        },
+        "2": {
+          "tap": "&mt LSHIFT LSHIFT",
+          "hold": ""
+        },
+        "3": {
+          "tap": "",
+          "hold": ""
+        },
+        "4": {
+          "tap": "",
+          "hold": ""
+        },
+        "5": {
+          "tap": "",
+          "hold": ""
+        },
+        "6": {
+          "tap": "",
+          "hold": ""
+        },
+        "7": {
+          "tap": "",
+          "hold": ""
+        },
+        "8": {
+          "tap": "",
+          "hold": ""
+        },
+        "9": {
+          "tap": "",
+          "hold": ""
+        },
+        "10": {
+          "tap": "",
+          "hold": ""
+        },
+        "11": {
+          "tap": "",
+          "hold": ""
+        },
+        "12": {
+          "tap": "",
+          "hold": ""
+        },
+        "13": {
+          "tap": "",
+          "hold": ""
+        },
+        "14": {
+          "tap": "",
+          "hold": ""
+        },
+        "15": {
+          "tap": "",
+          "hold": ""
+        }
+      }
+    },
+    {
+      "index": 2,
+      "row": 2,
+      "col": 3,
+      "hand": "left",
+      "finger": "thumb",
+      "is_layer_key": false,
+      "bindings": {
+        "0": {
+          "tap": "l",
+          "hold": "L"
+        },
+        "1": {
+          "tap": "k",
+          "hold": "K"
+        },
+        "2": {
+          "tap": "&mt RSHIFT RSHIFT",
+          "hold": ""
+        },
+        "3": {
+          "tap": "",
+          "hold": ""
+        },
+        "4": {
+          "tap": "",
+          "hold": ""
+        },
+        "5": {
+          "tap": "",
+          "hold": ""
+        },
+        "6": {
+          "tap": "",
+          "hold": ""
+        },
+        "7": {
+          "tap": "",
+          "hold": ""
+        },
+        "8": {
+          "tap": "",
+          "hold": ""
+        },
+        "9": {
+          "tap": "",
+          "hold": ""
+        },
+        "10": {
+          "tap": "",
+          "hold": ""
+        },
+        "11": {
+          "tap": "",
+          "hold": ""
+        },
+        "12": {
+          "tap": "",
+          "hold": ""
+        },
+        "13": {
+          "tap": "",
+          "hold": ""
+        },
+        "14": {
+          "tap": "",
+          "hold": ""
+        },
+        "15": {
+          "tap": "",
+          "hold": ""
+        }
+      }
+    },
+    {
+      "index": 3,
+      "row": 2,
+      "col": 2,
+      "hand": "left",
+      "finger": "thumb",
+      "is_layer_key": false,
+      "bindings": {
+        "0": {
+          "tap": "d",
+          "hold": "D"
+        },
+        "1": {
+          "tap": "x",
+          "hold": "X"
+        },
+        "2": {
+          "tap": "&mt LGUI LGUI",
+          "hold": ""
+        },
+        "3": {
+          "tap": "",
+          "hold": ""
+        },
+        "4": {
+          "tap": "",
+          "hold": ""
+        },
+        "5": {
+          "tap": "",
+          "hold": ""
+        },
+        "6": {
+          "tap": "",
+          "hold": ""
+        },
+        "7": {
+          "tap": "",
+          "hold": ""
+        },
+        "8": {
+          "tap": "",
+          "hold": ""
+        },
+        "9": {
+          "tap": "",
+          "hold": ""
+        },
+        "10": {
+          "tap": "",
+          "hold": ""
+        },
+        "11": {
+          "tap": "",
+          "hold": ""
+        },
+        "12": {
+          "tap": "",
+          "hold": ""
+        },
+        "13": {
+          "tap": "",
+          "hold": ""
+        },
+        "14": {
+          "tap": "",
+          "hold": ""
+        },
+        "15": {
+          "tap": "",
+          "hold": ""
+        }
+      }
+    },
+    {
+      "index": 4,
+      "row": 0,
+      "col": 3,
+      "hand": "left",
+      "finger": "index",
+      "is_layer_key": false,
+      "bindings": {
+        "0": {
+          "tap": "&ht ESC RET",
+          "hold": ""
+        },
+        "1": {
+          "tap": "h",
+          "hold": "H"
+        },
+        "2": {
+          "tap": "&mt LALT LALT",
+          "hold": ""
+        },
+        "3": {
+          "tap": "",
+          "hold": ""
+        },
+        "4": {
+          "tap": "",
+          "hold": ""
+        },
+        "5": {
+          "tap": "",
+          "hold": ""
+        },
+        "6": {
+          "tap": "",
+          "hold": ""
+        },
+        "7": {
+          "tap": "",
+          "hold": ""
+        },
+        "8": {
+          "tap": "",
+          "hold": ""
+        },
+        "9": {
+          "tap": "",
+          "hold": ""
+        },
+        "10": {
+          "tap": "",
+          "hold": ""
+        },
+        "11": {
+          "tap": "",
+          "hold": ""
+        },
+        "12": {
+          "tap": "",
+          "hold": ""
+        },
+        "13": {
+          "tap": "",
+          "hold": ""
+        },
+        "14": {
+          "tap": "",
+          "hold": ""
+        },
+        "15": {
+          "tap": "",
+          "hold": ""
+        }
+      }
+    },
+    {
+      "index": 5,
+      "row": 1,
+      "col": 3,
+      "hand": "left",
+      "finger": "index",
+      "is_layer_key": false,
+      "bindings": {
+        "0": {
+          "tap": "n",
+          "hold": "N"
+        },
+        "1": {
+          "tap": "q",
+          "hold": "Q"
+        },
+        "2": {
+          "tap": "&mt RALT RALT",
+          "hold": ""
+        },
+        "3": {
+          "tap": "",
+          "hold": ""
+        },
+        "4": {
+          "tap": "",
+          "hold": ""
+        },
+        "5": {
+          "tap": "",
+          "hold": ""
+        },
+        "6": {
+          "tap": "",
+          "hold": ""
+        },
+        "7": {
+          "tap": "",
+          "hold": ""
+        },
+        "8": {
+          "tap": "",
+          "hold": ""
+        },
+        "9": {
+          "tap": "",
+          "hold": ""
+        },
+        "10": {
+          "tap": "",
+          "hold": ""
+        },
+        "11": {
+          "tap": "",
+          "hold": ""
+        },
+        "12": {
+          "tap": "",
+          "hold": ""
+        },
+        "13": {
+          "tap": "",
+          "hold": ""
+        },
+        "14": {
+          "tap": "",
+          "hold": ""
+        },
+        "15": {
+          "tap": "",
+          "hold": ""
+        }
+      }
+    },
+    {
+      "index": 6,
+      "row": 0,
+      "col": 2,
+      "hand": "left",
+      "finger": "middle",
+      "is_layer_key": true,
+      "bindings": {
+        "0": {
+          "tap": "&mtl 4 1",
+          "hold": ""
+        },
+        "1": {
+          "tap": "",
+          "hold": ""
+        },
+        "2": {
+          "tap": "",
+          "hold": ""
+        },
+        "3": {
+          "tap": "",
+          "hold": ""
+        },
+        "4": {
+          "tap": "",
+          "hold": ""
+        },
+        "5": {
+          "tap": "",
+          "hold": ""
+        },
+        "6": {
+          "tap": "",
+          "hold": ""
+        },
+        "7": {
+          "tap": "",
+          "hold": ""
+        },
+        "8": {
+          "tap": "",
+          "hold": ""
+        },
+        "9": {
+          "tap": "",
+          "hold": ""
+        },
+        "10": {
+          "tap": "",
+          "hold": ""
+        },
+        "11": {
+          "tap": "",
+          "hold": ""
+        },
+        "12": {
+          "tap": "",
+          "hold": ""
+        },
+        "13": {
+          "tap": "",
+          "hold": ""
+        },
+        "14": {
+          "tap": "",
+          "hold": ""
+        },
+        "15": {
+          "tap": "",
+          "hold": ""
+        }
+      }
+    },
+    {
+      "index": 7,
+      "row": 1,
+      "col": 2,
+      "hand": "left",
+      "finger": "middle",
+      "is_layer_key": false,
+      "bindings": {
+        "0": {
+          "tap": "r",
+          "hold": "R"
+        },
+        "1": {
+          "tap": "&ht RSHIFT(Z) Z",
+          "hold": ""
+        },
+        "2": {
+          "tap": "",
+          "hold": ""
+        },
+        "3": {
+          "tap": "",
+          "hold": ""
+        },
+        "4": {
+          "tap": "",
+          "hold": ""
+        },
+        "5": {
+          "tap": "",
+          "hold": ""
+        },
+        "6": {
+          "tap": "",
+          "hold": ""
+        },
+        "7": {
+          "tap": "",
+          "hold": ""
+        },
+        "8": {
+          "tap": "",
+          "hold": ""
+        },
+        "9": {
+          "tap": "",
+          "hold": ""
+        },
+        "10": {
+          "tap": "",
+          "hold": ""
+        },
+        "11": {
+          "tap": "",
+          "hold": ""
+        },
+        "12": {
+          "tap": "",
+          "hold": ""
+        },
+        "13": {
+          "tap": "",
+          "hold": ""
+        },
+        "14": {
+          "tap": "",
+          "hold": ""
+        },
+        "15": {
+          "tap": "",
+          "hold": ""
+        }
+      }
+    },
+    {
+      "index": 8,
+      "row": 0,
+      "col": 1,
+      "hand": "left",
+      "finger": "ring",
+      "is_layer_key": false,
+      "bindings": {
+        "0": {
+          "tap": "g",
+          "hold": "G"
+        },
+        "1": {
+          "tap": "",
+          "hold": ""
+        },
+        "2": {
+          "tap": "&mt LCTRL LCTRL",
+          "hold": ""
+        },
+        "3": {
+          "tap": "&kp Z",
+          "hold": ""
+        },
+        "4": {
+          "tap": "",
+          "hold": ""
+        },
+        "5": {
+          "tap": "",
+          "hold": ""
+        },
+        "6": {
+          "tap": "",
+          "hold": ""
+        },
+        "7": {
+          "tap": "",
+          "hold": ""
+        },
+        "8": {
+          "tap": "",
+          "hold": ""
+        },
+        "9": {
+          "tap": "",
+          "hold": ""
+        },
+        "10": {
+          "tap": "",
+          "hold": ""
+        },
+        "11": {
+          "tap": "",
+          "hold": ""
+        },
+        "12": {
+          "tap": "",
+          "hold": ""
+        },
+        "13": {
+          "tap": "",
+          "hold": ""
+        },
+        "14": {
+          "tap": "",
+          "hold": ""
+        },
+        "15": {
+          "tap": "",
+          "hold": ""
+        }
+      }
+    },
+    {
+      "index": 9,
+      "row": 1,
+      "col": 1,
+      "hand": "left",
+      "finger": "ring",
+      "is_layer_key": false,
+      "bindings": {
+        "0": {
+          "tap": "p",
+          "hold": "P"
+        },
+        "1": {
+          "tap": "",
+          "hold": ""
+        },
+        "2": {
+          "tap": "&mt RCTRL RCTRL",
+          "hold": ""
+        },
+        "3": {
+          "tap": "",
+          "hold": ""
+        },
+        "4": {
+          "tap": "",
+          "hold": ""
+        },
+        "5": {
+          "tap": "",
+          "hold": ""
+        },
+        "6": {
+          "tap": "",
+          "hold": ""
+        },
+        "7": {
+          "tap": "",
+          "hold": ""
+        },
+        "8": {
+          "tap": "",
+          "hold": ""
+        },
+        "9": {
+          "tap": "",
+          "hold": ""
+        },
+        "10": {
+          "tap": "",
+          "hold": ""
+        },
+        "11": {
+          "tap": "",
+          "hold": ""
+        },
+        "12": {
+          "tap": "",
+          "hold": ""
+        },
+        "13": {
+          "tap": "",
+          "hold": ""
+        },
+        "14": {
+          "tap": "",
+          "hold": ""
+        },
+        "15": {
+          "tap": "",
+          "hold": ""
+        }
+      }
+    },
+    {
+      "index": 10,
+      "row": 0,
+      "col": 0,
+      "hand": "left",
+      "finger": "pinky",
+      "is_layer_key": false,
+      "bindings": {
+        "0": {
+          "tap": "&ht ESC RET",
+          "hold": ""
+        },
+        "1": {
+          "tap": "",
+          "hold": ""
+        },
+        "2": {
+          "tap": "&mo 3",
+          "hold": ""
+        },
+        "3": {
+          "tap": "",
+          "hold": ""
+        },
+        "4": {
+          "tap": "",
+          "hold": ""
+        },
+        "5": {
+          "tap": "",
+          "hold": ""
+        },
+        "6": {
+          "tap": "",
+          "hold": ""
+        },
+        "7": {
+          "tap": "",
+          "hold": ""
+        },
+        "8": {
+          "tap": "",
+          "hold": ""
+        },
+        "9": {
+          "tap": "",
+          "hold": ""
+        },
+        "10": {
+          "tap": "",
+          "hold": ""
+        },
+        "11": {
+          "tap": "",
+          "hold": ""
+        },
+        "12": {
+          "tap": "",
+          "hold": ""
+        },
+        "13": {
+          "tap": "",
+          "hold": ""
+        },
+        "14": {
+          "tap": "",
+          "hold": ""
+        },
+        "15": {
+          "tap": "",
+          "hold": ""
+        }
+      }
+    },
+    {
+      "index": 11,
+      "row": 2,
+      "col": 0,
+      "hand": "right",
+      "finger": "thumb",
+      "is_layer_key": false,
+      "bindings": {
+        "0": {
+          "tap": "&ht RSHIFT(A) A",
+          "hold": ""
+        },
+        "1": {
+          "tap": "'",
+          "hold": ""
+        },
+        "2": {
+          "tap": "&kp ENTER",
+          "hold": ""
+        },
+        "3": {
+          "tap": "",
+          "hold": ""
+        },
+        "4": {
+          "tap": "",
+          "hold": ""
+        },
+        "5": {
+          "tap": "",
+          "hold": ""
+        },
+        "6": {
+          "tap": "",
+          "hold": ""
+        },
+        "7": {
+          "tap": "",
+          "hold": ""
+        },
+        "8": {
+          "tap": "",
+          "hold": ""
+        },
+        "9": {
+          "tap": "",
+          "hold": ""
+        },
+        "10": {
+          "tap": "",
+          "hold": ""
+        },
+        "11": {
+          "tap": "",
+          "hold": ""
+        },
+        "12": {
+          "tap": "",
+          "hold": ""
+        },
+        "13": {
+          "tap": "",
+          "hold": ""
+        },
+        "14": {
+          "tap": "",
+          "hold": ""
+        },
+        "15": {
+          "tap": "",
+          "hold": ""
+        }
+      }
+    },
+    {
+      "index": 12,
+      "row": 2,
+      "col": 1,
+      "hand": "right",
+      "finger": "thumb",
+      "is_layer_key": false,
+      "bindings": {
+        "0": {
+          "tap": "&ht C C",
+          "hold": ""
+        },
+        "1": {
+          "tap": ",",
+          "hold": ""
+        },
+        "2": {
+          "tap": "&kp TAB",
+          "hold": ""
+        },
+        "3": {
+          "tap": "",
+          "hold": ""
+        },
+        "4": {
+          "tap": "",
+          "hold": ""
+        },
+        "5": {
+          "tap": "",
+          "hold": ""
+        },
+        "6": {
+          "tap": "",
+          "hold": ""
+        },
+        "7": {
+          "tap": "",
+          "hold": ""
+        },
+        "8": {
+          "tap": "",
+          "hold": ""
+        },
+        "9": {
+          "tap": "",
+          "hold": ""
+        },
+        "10": {
+          "tap": "",
+          "hold": ""
+        },
+        "11": {
+          "tap": "",
+          "hold": ""
+        },
+        "12": {
+          "tap": "",
+          "hold": ""
+        },
+        "13": {
+          "tap": "",
+          "hold": ""
+        },
+        "14": {
+          "tap": "",
+          "hold": ""
+        },
+        "15": {
+          "tap": "",
+          "hold": ""
+        }
+      }
+    },
+    {
+      "index": 13,
+      "row": 2,
+      "col": 2,
+      "hand": "right",
+      "finger": "thumb",
+      "is_layer_key": false,
+      "bindings": {
+        "0": {
+          "tap": "o",
+          "hold": "O"
+        },
+        "1": {
+          "tap": ".",
+          "hold": ""
+        },
+        "2": {
+          "tap": "",
+          "hold": ""
+        },
+        "3": {
+          "tap": "",
+          "hold": ""
+        },
+        "4": {
+          "tap": "",
+          "hold": ""
+        },
+        "5": {
+          "tap": "",
+          "hold": ""
+        },
+        "6": {
+          "tap": "",
+          "hold": ""
+        },
+        "7": {
+          "tap": "",
+          "hold": ""
+        },
+        "8": {
+          "tap": "",
+          "hold": ""
+        },
+        "9": {
+          "tap": "",
+          "hold": ""
+        },
+        "10": {
+          "tap": "",
+          "hold": ""
+        },
+        "11": {
+          "tap": "",
+          "hold": ""
+        },
+        "12": {
+          "tap": "",
+          "hold": ""
+        },
+        "13": {
+          "tap": "",
+          "hold": ""
+        },
+        "14": {
+          "tap": "",
+          "hold": ""
+        },
+        "15": {
+          "tap": "",
+          "hold": ""
+        }
+      }
+    },
+    {
+      "index": 14,
+      "row": 0,
+      "col": 1,
+      "hand": "right",
+      "finger": "index",
+      "is_layer_key": false,
+      "bindings": {
+        "0": {
+          "tap": "t",
+          "hold": "T"
+        },
+        "1": {
+          "tap": "f",
+          "hold": "F"
+        },
+        "2": {
+          "tap": "&kp BSPC",
+          "hold": ""
+        },
+        "3": {
+          "tap": "",
+          "hold": ""
+        },
+        "4": {
+          "tap": "",
+          "hold": ""
+        },
+        "5": {
+          "tap": "",
+          "hold": ""
+        },
+        "6": {
+          "tap": "",
+          "hold": ""
+        },
+        "7": {
+          "tap": "",
+          "hold": ""
+        },
+        "8": {
+          "tap": "",
+          "hold": ""
+        },
+        "9": {
+          "tap": "",
+          "hold": ""
+        },
+        "10": {
+          "tap": "",
+          "hold": ""
+        },
+        "11": {
+          "tap": "",
+          "hold": ""
+        },
+        "12": {
+          "tap": "",
+          "hold": ""
+        },
+        "13": {
+          "tap": "",
+          "hold": ""
+        },
+        "14": {
+          "tap": "",
+          "hold": ""
+        },
+        "15": {
+          "tap": "",
+          "hold": ""
+        }
+      }
+    },
+    {
+      "index": 15,
+      "row": 1,
+      "col": 1,
+      "hand": "right",
+      "finger": "index",
+      "is_layer_key": false,
+      "bindings": {
+        "0": {
+          "tap": "SPC",
+          "hold": "TAB"
+        },
+        "1": {
+          "tap": "y",
+          "hold": "Y"
+        },
+        "2": {
+          "tap": "&kp LEFT",
+          "hold": ""
+        },
+        "3": {
+          "tap": "",
+          "hold": ""
+        },
+        "4": {
+          "tap": "",
+          "hold": ""
+        },
+        "5": {
+          "tap": "",
+          "hold": ""
+        },
+        "6": {
+          "tap": "",
+          "hold": ""
+        },
+        "7": {
+          "tap": "",
+          "hold": ""
+        },
+        "8": {
+          "tap": "",
+          "hold": ""
+        },
+        "9": {
+          "tap": "",
+          "hold": ""
+        },
+        "10": {
+          "tap": "",
+          "hold": ""
+        },
+        "11": {
+          "tap": "",
+          "hold": ""
+        },
+        "12": {
+          "tap": "",
+          "hold": ""
+        },
+        "13": {
+          "tap": "",
+          "hold": ""
+        },
+        "14": {
+          "tap": "",
+          "hold": ""
+        },
+        "15": {
+          "tap": "",
+          "hold": ""
+        }
+      }
+    },
+    {
+      "index": 16,
+      "row": 0,
+      "col": 2,
+      "hand": "right",
+      "finger": "middle",
+      "is_layer_key": false,
+      "bindings": {
+        "0": {
+          "tap": "i",
+          "hold": "I"
+        },
+        "1": {
+          "tap": "w",
+          "hold": "W"
+        },
+        "2": {
+          "tap": "&kp UP",
+          "hold": ""
+        },
+        "3": {
+          "tap": "",
+          "hold": ""
+        },
+        "4": {
+          "tap": "",
+          "hold": ""
+        },
+        "5": {
+          "tap": "",
+          "hold": ""
+        },
+        "6": {
+          "tap": "",
+          "hold": ""
+        },
+        "7": {
+          "tap": "",
+          "hold": ""
+        },
+        "8": {
+          "tap": "",
+          "hold": ""
+        },
+        "9": {
+          "tap": "",
+          "hold": ""
+        },
+        "10": {
+          "tap": "",
+          "hold": ""
+        },
+        "11": {
+          "tap": "",
+          "hold": ""
+        },
+        "12": {
+          "tap": "",
+          "hold": ""
+        },
+        "13": {
+          "tap": "",
+          "hold": ""
+        },
+        "14": {
+          "tap": "",
+          "hold": ""
+        },
+        "15": {
+          "tap": "",
+          "hold": ""
+        }
+      }
+    },
+    {
+      "index": 17,
+      "row": 1,
+      "col": 2,
+      "hand": "right",
+      "finger": "middle",
+      "is_layer_key": false,
+      "bindings": {
+        "0": {
+          "tap": "e",
+          "hold": "E"
+        },
+        "1": {
+          "tap": "j",
+          "hold": "J"
+        },
+        "2": {
+          "tap": "&kp DOWN",
+          "hold": ""
+        },
+        "3": {
+          "tap": "",
+          "hold": ""
+        },
+        "4": {
+          "tap": "",
+          "hold": ""
+        },
+        "5": {
+          "tap": "",
+          "hold": ""
+        },
+        "6": {
+          "tap": "",
+          "hold": ""
+        },
+        "7": {
+          "tap": "",
+          "hold": ""
+        },
+        "8": {
+          "tap": "",
+          "hold": ""
+        },
+        "9": {
+          "tap": "",
+          "hold": ""
+        },
+        "10": {
+          "tap": "",
+          "hold": ""
+        },
+        "11": {
+          "tap": "",
+          "hold": ""
+        },
+        "12": {
+          "tap": "",
+          "hold": ""
+        },
+        "13": {
+          "tap": "",
+          "hold": ""
+        },
+        "14": {
+          "tap": "",
+          "hold": ""
+        },
+        "15": {
+          "tap": "",
+          "hold": ""
+        }
+      }
+    },
+    {
+      "index": 18,
+      "row": 0,
+      "col": 3,
+      "hand": "right",
+      "finger": "ring",
+      "is_layer_key": false,
+      "bindings": {
+        "0": {
+          "tap": "v",
+          "hold": "V"
+        },
+        "1": {
+          "tap": "b",
+          "hold": "B"
+        },
+        "2": {
+          "tap": "&kp DEL",
+          "hold": ""
+        },
+        "3": {
+          "tap": "",
+          "hold": ""
+        },
+        "4": {
+          "tap": "",
+          "hold": ""
+        },
+        "5": {
+          "tap": "",
+          "hold": ""
+        },
+        "6": {
+          "tap": "",
+          "hold": ""
+        },
+        "7": {
+          "tap": "",
+          "hold": ""
+        },
+        "8": {
+          "tap": "",
+          "hold": ""
+        },
+        "9": {
+          "tap": "",
+          "hold": ""
+        },
+        "10": {
+          "tap": "",
+          "hold": ""
+        },
+        "11": {
+          "tap": "",
+          "hold": ""
+        },
+        "12": {
+          "tap": "",
+          "hold": ""
+        },
+        "13": {
+          "tap": "",
+          "hold": ""
+        },
+        "14": {
+          "tap": "",
+          "hold": ""
+        },
+        "15": {
+          "tap": "",
+          "hold": ""
+        }
+      }
+    },
+    {
+      "index": 19,
+      "row": 1,
+      "col": 3,
+      "hand": "right",
+      "finger": "ring",
+      "is_layer_key": false,
+      "bindings": {
+        "0": {
+          "tap": "u",
+          "hold": "U"
+        },
+        "1": {
+          "tap": "-",
+          "hold": ""
+        },
+        "2": {
+          "tap": "&kp RIGHT",
+          "hold": ""
+        },
+        "3": {
+          "tap": "",
+          "hold": ""
+        },
+        "4": {
+          "tap": "",
+          "hold": ""
+        },
+        "5": {
+          "tap": "",
+          "hold": ""
+        },
+        "6": {
+          "tap": "",
+          "hold": ""
+        },
+        "7": {
+          "tap": "",
+          "hold": ""
+        },
+        "8": {
+          "tap": "",
+          "hold": ""
+        },
+        "9": {
+          "tap": "",
+          "hold": ""
+        },
+        "10": {
+          "tap": "",
+          "hold": ""
+        },
+        "11": {
+          "tap": "",
+          "hold": ""
+        },
+        "12": {
+          "tap": "",
+          "hold": ""
+        },
+        "13": {
+          "tap": "",
+          "hold": ""
+        },
+        "14": {
+          "tap": "",
+          "hold": ""
+        },
+        "15": {
+          "tap": "",
+          "hold": ""
+        }
+      }
+    },
+    {
+      "index": 20,
+      "row": 0,
+      "col": 4,
+      "hand": "right",
+      "finger": "pinky",
+      "is_layer_key": false,
+      "bindings": {
+        "0": {
+          "tap": "BKS",
+          "hold": "DEL"
+        },
+        "1": {
+          "tap": "_",
+          "hold": ""
+        },
+        "2": {
+          "tap": "&kp ESC",
+          "hold": ""
+        },
+        "3": {
+          "tap": "",
+          "hold": ""
+        },
+        "4": {
+          "tap": "",
+          "hold": ""
+        },
+        "5": {
+          "tap": "",
+          "hold": ""
+        },
+        "6": {
+          "tap": "",
+          "hold": ""
+        },
+        "7": {
+          "tap": "",
+          "hold": ""
+        },
+        "8": {
+          "tap": "",
+          "hold": ""
+        },
+        "9": {
+          "tap": "",
+          "hold": ""
+        },
+        "10": {
+          "tap": "",
+          "hold": ""
+        },
+        "11": {
+          "tap": "",
+          "hold": ""
+        },
+        "12": {
+          "tap": "",
+          "hold": ""
+        },
+        "13": {
+          "tap": "",
+          "hold": ""
+        },
+        "14": {
+          "tap": "",
+          "hold": ""
+        },
+        "15": {
+          "tap": "",
+          "hold": ""
+        }
+      }
+    }
+  ],
+  "layers": [
+    {
+      "id": 0,
+      "name": "1 - Text 1"
+    },
+    {
+      "id": 1,
+      "name": "2 - Text 2"
+    },
+    {
+      "id": 2,
+      "name": "3 - Essentials 1"
+    },
+    {
+      "id": 3,
+      "name": "4 - Essentials 2"
+    },
+    {
+      "id": 4,
+      "name": "Layer 5"
+    },
+    {
+      "id": 5,
+      "name": "Layer 6"
+    },
+    {
+      "id": 6,
+      "name": "Layer 7"
+    },
+    {
+      "id": 7,
+      "name": "Layer 8"
+    },
+    {
+      "id": 8,
+      "name": "Layer 9"
+    },
+    {
+      "id": 9,
+      "name": "Layer 10"
+    },
+    {
+      "id": 10,
+      "name": "Layer 11"
+    },
+    {
+      "id": 11,
+      "name": "Layer 12"
+    },
+    {
+      "id": 12,
+      "name": "Layer 13"
+    },
+    {
+      "id": 13,
+      "name": "Layer 14"
+    },
+    {
+      "id": 14,
+      "name": "Layer 15"
+    },
+    {
+      "id": 15,
+      "name": "Layer 16"
+    }
+  ]
+}
