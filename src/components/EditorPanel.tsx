@@ -270,6 +270,7 @@ const SearchableSelect: React.FC<SearchableSelectProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState('');
+  const [openUpward, setOpenUpward] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -283,6 +284,12 @@ const SearchableSelect: React.FC<SearchableSelectProps> = ({
   }, []);
 
   const handleInputFocus = () => {
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      const spaceBelow = window.innerHeight - rect.bottom;
+      // If there is less than 280px of space below the dropdown trigger, open it upward
+      setOpenUpward(spaceBelow < 280);
+    }
     setIsOpen(true);
     setSearch('');
   };
@@ -342,19 +349,21 @@ const SearchableSelect: React.FC<SearchableSelectProps> = ({
         {isOpen && !isListening && (
           <div
             className="glass-panel"
+            onWheel={(e) => e.stopPropagation()}
+            onTouchMove={(e) => e.stopPropagation()}
             style={{
               position: 'absolute',
-              top: '100%',
               left: 0,
               right: 0,
               maxHeight: 240,
               overflowY: 'auto',
               zIndex: 100,
-              marginTop: 4,
               padding: 8,
               backgroundColor: 'rgba(24, 24, 27, 0.95)',
               border: '1px solid var(--border-color)',
-              boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.5)'
+              ...(openUpward 
+                ? { bottom: '100%', marginBottom: 4, boxShadow: '0 -10px 25px -5px rgba(0, 0, 0, 0.5)' } 
+                : { top: '100%', marginTop: 4, boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.5)' })
             }}
           >
             {Object.keys(categories).length === 0 ? (
@@ -978,6 +987,14 @@ export const EditorPanel: React.FC<EditorPanelProps> = ({
         .mode-toggle-btn:hover:not(.active) {
           color: var(--text-primary);
           background-color: rgba(255,255,255,0.03);
+        }
+        /* Scrollbar override for the dropdown menu to make it clearly visible */
+        .glass-panel::-webkit-scrollbar-thumb {
+          background: var(--border-color) !important;
+          border-radius: 4px;
+        }
+        .glass-panel::-webkit-scrollbar-thumb:hover {
+          background: var(--text-secondary) !important;
         }
       `}</style>
 
