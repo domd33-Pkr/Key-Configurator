@@ -141,12 +141,16 @@ export const parseKeyParam = (param: string): { keycode: string; modifier: strin
 
 export const stringifyKeyParam = (keycode: string, modifier: string): string => {
   const k = (keycode || '').trim();
-  const m = (modifier || 'none').trim();
+  let m = (modifier || 'none').trim();
   
   if (!k) return '';
   if (m === 'none' || !m) {
     return k;
   }
+  if (m === 'LSHIFT') m = 'LSFT';
+  if (m === 'RSHIFT') m = 'RSFT';
+  if (m === 'LCTRL') m = 'LCTL';
+  if (m === 'RCTRL') m = 'RCTL';
   return `${m}(${k})`;
 };
 
