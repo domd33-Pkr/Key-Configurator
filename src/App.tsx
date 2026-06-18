@@ -87,10 +87,14 @@ const parseKeyParam = (param: string) => {
   const shiftMatch = param.match(/^([A-ZFTL_]+)\((.+)\)$/);
   if (shiftMatch) {
     let mod = shiftMatch[1];
-    if (mod === 'LSHIFT') mod = 'LSFT';
-    if (mod === 'LCTRL') mod = 'LCTL';
-    if (mod === 'RSHIFT') mod = 'RSFT';
-    if (mod === 'RCTRL') mod = 'RCTL';
+    if (mod === 'LSHIFT' || mod === 'LSFT') mod = 'LS';
+    if (mod === 'RSHIFT' || mod === 'RSFT') mod = 'RS';
+    if (mod === 'LCTRL' || mod === 'LCTL') mod = 'LC';
+    if (mod === 'RCTRL' || mod === 'RCTL') mod = 'RC';
+    if (mod === 'LALT') mod = 'LA';
+    if (mod === 'RALT') mod = 'RA';
+    if (mod === 'LGUI') mod = 'LG';
+    if (mod === 'RGUI') mod = 'RG';
     return { modifier: mod, keycode: shiftMatch[2] };
   }
   if (isModifier(param)) {

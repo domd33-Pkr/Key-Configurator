@@ -121,19 +121,26 @@ const BEHAVIORS = [
   { value: 'custom', label: 'Raw Code / Custom', desc: 'Allows direct entry of ZMK code' }
 ];
 
-const MODIFIERS = [
+const KP_MODIFIERS = [
   { value: 'none', label: 'None (none)' },
-  { value: 'LS', label: 'Shift (LS)' },
-  { value: 'LC', label: 'Control (LC)' },
-  { value: 'LA', label: 'Alt / Option (LA)' },
-  { value: 'LG', label: 'GUI / Win / Cmd (LG)' },
-  { value: 'LSFT', label: 'Left Shift (LSFT)' },
-  { value: 'LCTL', label: 'Left Control (LCTL)' },
+  { value: 'LS', label: 'Left Shift (LS)' },
+  { value: 'RS', label: 'Right Shift (RS)' },
+  { value: 'LC', label: 'Left Control (LC)' },
+  { value: 'RC', label: 'Right Control (RC)' },
+  { value: 'LA', label: 'Left Alt / Option (LA)' },
+  { value: 'RA', label: 'Right Alt / AltGr (RA)' },
+  { value: 'LG', label: 'Left GUI / Win / Cmd (LG)' },
+  { value: 'RG', label: 'Right GUI / Win / Cmd (RG)' }
+];
+
+const HOLD_MODIFIERS = [
+  { value: 'LSHIFT', label: 'Left Shift (LSHIFT)' },
+  { value: 'RSHIFT', label: 'Right Shift (RSHIFT)' },
+  { value: 'LCTRL', label: 'Left Control (LCTRL)' },
+  { value: 'RCTRL', label: 'Right Control (RCTRL)' },
   { value: 'LALT', label: 'Left Alt / Option (LALT)' },
-  { value: 'LGUI', label: 'Left GUI / Win / Cmd (LGUI)' },
-  { value: 'RSFT', label: 'Right Shift (RSFT)' },
-  { value: 'RCTL', label: 'Right Control (RCTL)' },
   { value: 'RALT', label: 'Right Alt / AltGr (RALT)' },
+  { value: 'LGUI', label: 'Left GUI / Win / Cmd (LGUI)' },
   { value: 'RGUI', label: 'Right GUI / Win / Cmd (RGUI)' }
 ];
 
@@ -639,7 +646,7 @@ export const EditorPanel: React.FC<EditorPanelProps> = ({
                 }}
                 style={{ cursor: 'pointer' }}
               >
-                {MODIFIERS.map(mod => (
+                {KP_MODIFIERS.map(mod => (
                   <option key={mod.value} value={mod.value}>{mod.label}</option>
                 ))}
               </select>
@@ -694,7 +701,7 @@ export const EditorPanel: React.FC<EditorPanelProps> = ({
               onChange={(e) => handleParamChange('param1', e.target.value)}
               style={{ cursor: 'pointer' }}
             >
-              {MODIFIERS.filter(m => m.value !== 'none' && m.value.length > 2).map(mod => (
+              {HOLD_MODIFIERS.map(mod => (
                 <option key={mod.value} value={mod.value}>{mod.label}</option>
               ))}
             </select>
@@ -848,8 +855,8 @@ export const EditorPanel: React.FC<EditorPanelProps> = ({
                 onChange={(e) => handleParamChange('param1', e.target.value)}
                 style={{ cursor: 'pointer' }}
               >
-                {MODIFIERS.filter(m => m.value !== 'none' && m.value.length > 2).map(mod => (
-                  <option key={mod.value} value={mod.value}>{mod.value}</option>
+                {HOLD_MODIFIERS.map(mod => (
+                  <option key={mod.value} value={mod.value}>{mod.label}</option>
                 ))}
               </select>
             </div>
@@ -884,7 +891,7 @@ export const EditorPanel: React.FC<EditorPanelProps> = ({
                   }}
                   style={{ cursor: 'pointer' }}
                 >
-                  {MODIFIERS.map(mod => (
+                  {KP_MODIFIERS.map(mod => (
                     <option key={mod.value} value={mod.value}>{mod.label}</option>
                   ))}
                 </select>
@@ -916,7 +923,7 @@ export const EditorPanel: React.FC<EditorPanelProps> = ({
                   }}
                   style={{ cursor: 'pointer' }}
                 >
-                  {MODIFIERS.map(mod => (
+                  {KP_MODIFIERS.map(mod => (
                     <option key={mod.value} value={mod.value}>{mod.label}</option>
                   ))}
                 </select>

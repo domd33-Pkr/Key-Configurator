@@ -123,10 +123,14 @@ export const parseKeyParam = (param: string): { keycode: string; modifier: strin
   const match = trimmed.match(/^([A-Z0-9_]+)\((.*)\)$/);
   if (match) {
     let mod = match[1];
-    if (mod === 'LSHIFT') mod = 'LSFT';
-    if (mod === 'LCTRL') mod = 'LCTL';
-    if (mod === 'RSHIFT') mod = 'RSFT';
-    if (mod === 'RCTRL') mod = 'RCTL';
+    if (mod === 'LSHIFT' || mod === 'LSFT') mod = 'LS';
+    if (mod === 'RSHIFT' || mod === 'RSFT') mod = 'RS';
+    if (mod === 'LCTRL' || mod === 'LCTL') mod = 'LC';
+    if (mod === 'RCTRL' || mod === 'RCTL') mod = 'RC';
+    if (mod === 'LALT') mod = 'LA';
+    if (mod === 'RALT') mod = 'RA';
+    if (mod === 'LGUI') mod = 'LG';
+    if (mod === 'RGUI') mod = 'RG';
     return {
       keycode: match[2],
       modifier: mod
@@ -147,10 +151,14 @@ export const stringifyKeyParam = (keycode: string, modifier: string): string => 
   if (m === 'none' || !m) {
     return k;
   }
-  if (m === 'LSHIFT') m = 'LSFT';
-  if (m === 'RSHIFT') m = 'RSFT';
-  if (m === 'LCTRL') m = 'LCTL';
-  if (m === 'RCTRL') m = 'RCTL';
+  if (m === 'LSHIFT' || m === 'LSFT') m = 'LS';
+  if (m === 'RSHIFT' || m === 'RSFT') m = 'RS';
+  if (m === 'LCTRL' || m === 'LCTL') m = 'LC';
+  if (m === 'RCTRL' || m === 'RCTL') m = 'RC';
+  if (m === 'LALT') m = 'LA';
+  if (m === 'RALT') m = 'RA';
+  if (m === 'LGUI') m = 'LG';
+  if (m === 'RGUI') m = 'RG';
   return `${m}(${k})`;
 };
 
