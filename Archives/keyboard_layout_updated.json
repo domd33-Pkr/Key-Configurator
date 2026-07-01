@@ -13,7 +13,7 @@
           "hold": ""
         },
         "1": {
-          "tap": "&mtl 5 2",
+          "tap": "&ht LS(W) W",
           "hold": ""
         },
         "2": {
@@ -83,7 +83,7 @@
       "is_layer_key": false,
       "bindings": {
         "0": {
-          "tap": "&mo 1",
+          "tap": "&sl 1",
           "hold": ""
         },
         "1": {
@@ -231,7 +231,7 @@
       "is_layer_key": false,
       "bindings": {
         "0": {
-          "tap": "&ht ESC RET",
+          "tap": "&ht LS(Q) Q",
           "hold": ""
         },
         "1": {
@@ -679,7 +679,7 @@
           "hold": ""
         },
         "1": {
-          "tap": "",
+          "tap": "&mo 2",
           "hold": ""
         },
         "2": {
@@ -749,7 +749,7 @@
       "is_layer_key": false,
       "bindings": {
         "0": {
-          "tap": "&ht RSHIFT(A) A",
+          "tap": "&ht LS(A) A",
           "hold": ""
         },
         "1": {

@@ -49,6 +49,29 @@ const ZMK_KEYCODES = [
   { value: 'COMMA', label: 'Keyboard , and <', category: 'Symbols & Punctuation' },
   { value: 'DOT', label: 'Keyboard . and >', category: 'Symbols & Punctuation' },
   { value: 'FSLH', label: 'Keyboard / and ?', category: 'Symbols & Punctuation' },
+  { value: 'DQT', label: 'Double Quote "', category: 'Symbols & Punctuation' },
+  { value: 'COLON', label: 'Colon :', category: 'Symbols & Punctuation' },
+  { value: 'LPAR', label: 'Left Parenthesis (', category: 'Symbols & Punctuation' },
+  { value: 'RPAR', label: 'Right Parenthesis )', category: 'Symbols & Punctuation' },
+  { value: 'LBRC', label: 'Left Brace {', category: 'Symbols & Punctuation' },
+  { value: 'RBRC', label: 'Right Brace }', category: 'Symbols & Punctuation' },
+  { value: 'AMPS', label: 'Ampersand &', category: 'Symbols & Punctuation' },
+  { value: 'HASH', label: 'Hash #', category: 'Symbols & Punctuation' },
+  { value: 'PIPE', label: 'Pipe |', category: 'Symbols & Punctuation' },
+  { value: 'TILDE', label: 'Tilde ~', category: 'Symbols & Punctuation' },
+  { value: 'DLLR', label: 'Dollar $', category: 'Symbols & Punctuation' },
+  { value: 'PRCNT', label: 'Percent %', category: 'Symbols & Punctuation' },
+  { value: 'PLUS', label: 'Plus +', category: 'Symbols & Punctuation' },
+  { value: 'STAR', label: 'Asterisk *', category: 'Symbols & Punctuation' },
+  { value: 'EXCL', label: 'Exclamation !', category: 'Symbols & Punctuation' },
+  { value: 'QMARK', label: 'Question Mark ?', category: 'Symbols & Punctuation' },
+  { value: 'CARET', label: 'Caret ^', category: 'Symbols & Punctuation' },
+  
+  // Special Symbols
+  { value: 'OHM', label: 'Ohm (Ω)', category: 'Special Symbols' },
+  { value: 'DELTA', label: 'Delta (Δ)', category: 'Special Symbols' },
+  { value: 'DEGREE', label: 'Degree (°)', category: 'Special Symbols' },
+
   
   // Navigation & Control
   { value: 'UP', label: 'Up Arrow', category: 'Navigation & System' },
