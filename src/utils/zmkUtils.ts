@@ -162,12 +162,27 @@ export const stringifyKeyParam = (keycode: string, modifier: string): string => 
   return `${m}(${k})`;
 };
 
-export const parseBindingForDisplay = (bindingStr: string): { tap: string; hold: string } => {
+export const parseBindingForDisplay = (bindingStr: string, layers?: {id: number; name: string}[]): { tap: string; hold: string } => {
   if (!bindingStr) {
     return { tap: '', hold: '' };
   }
   const parts = bindingStr.trim().split(/\s+/);
   const behavior = parts[0];
+
+  const getLayerDisplay = (layerIdStr: string, prefix: string = '') => {
+    const id = parseInt(layerIdStr || '0', 10);
+    if (layers && layers.length > 0) {
+      const layer = layers.find(l => l.id === id);
+      if (layer && layer.name) {
+        // If the layer is named "Layer X", just show LX, otherwise show the name
+        if (layer.name.match(/^Layer\s*\d+$/i)) {
+          return `${prefix}L${id}`;
+        }
+        return layer.name;
+      }
+    }
+    return `${prefix}L${id}`;
+  };
 
   switch (behavior) {
     case '&kp':
@@ -176,7 +191,7 @@ export const parseBindingForDisplay = (bindingStr: string): { tap: string; hold:
     case '&to':
     case '&tog':
     case '&sl':
-      return { tap: `L${parts[1] || '0'}`, hold: '' };
+      return { tap: getLayerDisplay(parts[1], ''), hold: '' };
     case '&trans':
       return { tap: '▽', hold: '' };
     case '&none':
@@ -187,13 +202,13 @@ export const parseBindingForDisplay = (bindingStr: string): { tap: string; hold:
       return { tap: tapKey, hold: holdMod };
     }
     case '&lt': {
-      const holdLayer = `L${parts[1] || '0'}`;
+      const holdLayer = getLayerDisplay(parts[1], '');
       const tapKey = parts.slice(2).join(' ') || '';
       return { tap: tapKey, hold: holdLayer };
     }
     case '&mtl': {
-      const holdLayer = `L${parts[1] || '0'}`;
-      const tapLayer = `SL${parts[2] || '0'}`;
+      const holdLayer = getLayerDisplay(parts[1], '');
+      const tapLayer = getLayerDisplay(parts[2], 'S');
       return { tap: tapLayer, hold: holdLayer };
     }
     case '&ht': {

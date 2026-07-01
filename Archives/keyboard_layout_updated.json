@@ -9,7 +9,7 @@
       "is_layer_key": false,
       "bindings": {
         "0": {
-          "tap": "&ht LS(I) I",
+          "tap": "&mo 5",
           "hold": ""
         },
         "1": {
@@ -83,8 +83,8 @@
       "is_layer_key": false,
       "bindings": {
         "0": {
-          "tap": "l",
-          "hold": "L"
+          "tap": "&mo 1",
+          "hold": ""
         },
         "1": {
           "tap": "k",
@@ -157,8 +157,8 @@
       "is_layer_key": false,
       "bindings": {
         "0": {
-          "tap": "d",
-          "hold": "D"
+          "tap": "&mo 7",
+          "hold": ""
         },
         "1": {
           "tap": "x",
@@ -379,7 +379,7 @@
       "is_layer_key": true,
       "bindings": {
         "0": {
-          "tap": "&mtl 4 1",
+          "tap": "&ht LS(D) D",
           "hold": ""
         },
         "1": {
@@ -453,8 +453,8 @@
       "is_layer_key": false,
       "bindings": {
         "0": {
-          "tap": "r",
-          "hold": "R"
+          "tap": "&ht LS(D) D",
+          "hold": ""
         },
         "1": {
           "tap": "&ht RSHIFT(Z) Z",
@@ -675,7 +675,7 @@
       "is_layer_key": false,
       "bindings": {
         "0": {
-          "tap": "&ht ESC RET",
+          "tap": "&mo 3",
           "hold": ""
         },
         "1": {
@@ -1484,35 +1484,35 @@
   "layers": [
     {
       "id": 0,
-      "name": "1 - Text 1"
+      "name": "Alpha1"
     },
     {
       "id": 1,
-      "name": "2 - Text 2"
+      "name": "Alpha2"
     },
     {
       "id": 2,
-      "name": "3 - Essentials 1"
+      "name": "Func1"
     },
     {
       "id": 3,
-      "name": "4 - Essentials 2"
+      "name": "Cursor"
     },
     {
       "id": 4,
-      "name": "Layer 5"
+      "name": "Func2"
     },
     {
       "id": 5,
-      "name": "Layer 6"
+      "name": "Math"
     },
     {
       "id": 6,
-      "name": "Layer 7"
+      "name": "Symbol"
     },
     {
       "id": 7,
-      "name": "Layer 8"
+      "name": "Other"
     },
     {
       "id": 8,

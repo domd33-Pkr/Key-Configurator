@@ -7,6 +7,7 @@ interface KeyboardProps {
   keys: KeyConfig[];
   selectedKeyIndex: number | null;
   selectedLayerId: number;
+  layers?: { id: number; name: string }[];
   onKeySelect: (keyData: KeyConfig) => void;
   // Simulation props
   isSimMode?: boolean;
@@ -21,6 +22,7 @@ export const Keyboard: React.FC<KeyboardProps> = ({
   keys, 
   selectedKeyIndex, 
   selectedLayerId, 
+  layers,
   onKeySelect,
   isSimMode = false,
   heldKeys = new Set(),
@@ -41,6 +43,7 @@ export const Keyboard: React.FC<KeyboardProps> = ({
               keyData={k} 
               isSelected={selectedKeyIndex === k.index} 
               selectedLayerId={selectedLayerId}
+              layers={layers}
               onClick={onKeySelect} 
               isSimMode={isSimMode}
               isHeld={heldKeys.has(k.index)}
@@ -60,6 +63,7 @@ export const Keyboard: React.FC<KeyboardProps> = ({
               keyData={k} 
               isSelected={selectedKeyIndex === k.index} 
               selectedLayerId={selectedLayerId}
+              layers={layers}
               onClick={onKeySelect} 
               isSimMode={isSimMode}
               isHeld={heldKeys.has(k.index)}

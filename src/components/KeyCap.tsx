@@ -8,6 +8,7 @@ interface KeyCapProps {
   keyData: KeyConfig;
   isSelected: boolean;
   selectedLayerId: number;
+  layers?: { id: number; name: string }[];
   onClick: (keyData: KeyConfig) => void;
   // Simulation props
   isSimMode?: boolean;
@@ -22,6 +23,7 @@ export const KeyCap: React.FC<KeyCapProps> = ({
   keyData, 
   isSelected, 
   selectedLayerId, 
+  layers,
   onClick,
   isSimMode = false,
   isHeld = false,
@@ -52,7 +54,7 @@ export const KeyCap: React.FC<KeyCapProps> = ({
     }
   }
 
-  const { tap: displayTap, hold: displayHold } = parseBindingForDisplay(bindingStr);
+  const { tap: displayTap, hold: displayHold } = parseBindingForDisplay(bindingStr, layers);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     if (isSimMode && e.button === 0 && onSimDown && !isLocked) {

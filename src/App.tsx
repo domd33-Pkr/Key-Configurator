@@ -907,6 +907,7 @@ function App() {
               keys={layoutData.keys} 
               selectedLayerId={isSimMode ? simActiveLayerId : selectedLayerId}
               selectedKeyIndex={selectedKeyIndex} 
+              layers={layersList}
               onKeySelect={(k) => setSelectedKeyIndex(k.index)} 
               isSimMode={isSimMode}
               heldKeys={heldKeys}
