@@ -87,8 +87,8 @@
           "hold": ""
         },
         "1": {
-          "tap": "k",
-          "hold": "K"
+          "tap": "&trans",
+          "hold": ""
         },
         "2": {
           "tap": "&mt RSHIFT RSHIFT",
@@ -753,7 +753,7 @@
           "hold": ""
         },
         "1": {
-          "tap": "'",
+          "tap": "&ht LS(SQT) SQT",
           "hold": ""
         },
         "2": {
@@ -827,7 +827,7 @@
           "hold": ""
         },
         "1": {
-          "tap": ",",
+          "tap": "&ht DOT COMMA",
           "hold": ""
         },
         "2": {
@@ -901,7 +901,7 @@
           "hold": ""
         },
         "1": {
-          "tap": ".",
+          "tap": "&ht LS(SEMI) SEMI",
           "hold": ""
         },
         "2": {
@@ -975,8 +975,8 @@
           "hold": ""
         },
         "1": {
-          "tap": "f",
-          "hold": "F"
+          "tap": "&kp PRCNT",
+          "hold": ""
         },
         "2": {
           "tap": "&kp BSPC",
@@ -1045,8 +1045,8 @@
       "is_layer_key": false,
       "bindings": {
         "0": {
-          "tap": "SPC",
-          "hold": "TAB"
+          "tap": "&ht LS(I) I",
+          "hold": ""
         },
         "1": {
           "tap": "y",
@@ -1123,8 +1123,8 @@
           "hold": ""
         },
         "1": {
-          "tap": "w",
-          "hold": "W"
+          "tap": "&kp DLLR",
+          "hold": ""
         },
         "2": {
           "tap": "&kp UP",
@@ -1271,8 +1271,8 @@
           "hold": ""
         },
         "1": {
-          "tap": "b",
-          "hold": "B"
+          "tap": "&kp HASH",
+          "hold": ""
         },
         "2": {
           "tap": "&kp DEL",
@@ -1419,7 +1419,7 @@
           "hold": "DEL"
         },
         "1": {
-          "tap": "_",
+          "tap": "&kp LS(GRAVE)",
           "hold": ""
         },
         "2": {
