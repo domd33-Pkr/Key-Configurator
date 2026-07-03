@@ -184,39 +184,52 @@ export const parseBindingForDisplay = (bindingStr: string, layers?: {id: number;
     return `${prefix}L${id}`;
   };
 
+  let tap = '';
+  let hold = '';
+
   switch (behavior) {
     case '&kp':
-      return { tap: parts.slice(1).join(' '), hold: '' };
+      tap = parts.slice(1).join(' ');
+      break;
     case '&mo':
     case '&to':
     case '&tog':
     case '&sl':
-      return { tap: getLayerDisplay(parts[1], ''), hold: '' };
+      tap = getLayerDisplay(parts[1], '');
+      break;
     case '&trans':
-      return { tap: '▽', hold: '' };
+      tap = '▽';
+      break;
     case '&none':
-      return { tap: '·', hold: '' };
+      tap = '·';
+      break;
     case '&mt': {
-      const holdMod = parts[1] || '';
-      const tapKey = parts.slice(2).join(' ') || '';
-      return { tap: tapKey, hold: holdMod };
+      hold = parts[1] || '';
+      tap = parts.slice(2).join(' ') || '';
+      break;
     }
     case '&lt': {
-      const holdLayer = getLayerDisplay(parts[1], '');
-      const tapKey = parts.slice(2).join(' ') || '';
-      return { tap: tapKey, hold: holdLayer };
+      hold = getLayerDisplay(parts[1], '');
+      tap = parts.slice(2).join(' ') || '';
+      break;
     }
     case '&mtl': {
-      const holdLayer = getLayerDisplay(parts[1], '');
-      const tapLayer = getLayerDisplay(parts[2], 'S');
-      return { tap: tapLayer, hold: holdLayer };
+      hold = getLayerDisplay(parts[1], '');
+      tap = getLayerDisplay(parts[2], 'S');
+      break;
     }
     case '&ht': {
-      const holdArg = parts[1] || '';
-      const tapArg = parts.slice(2).join(' ') || '';
-      return { tap: tapArg, hold: holdArg };
+      hold = parts[1] || '';
+      tap = parts.slice(2).join(' ') || '';
+      break;
     }
     default:
-      return { tap: bindingStr, hold: '' };
+      tap = bindingStr;
   }
+
+  const clean = (val: string) => {
+    return val.replace(/(KP_)?NUMBER_/g, '');
+  };
+
+  return { tap: clean(tap), hold: clean(hold) };
 };
