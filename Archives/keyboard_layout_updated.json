@@ -305,8 +305,8 @@
       "is_layer_key": false,
       "bindings": {
         "0": {
-          "tap": "n",
-          "hold": "N"
+          "tap": "&ht LS(N) N",
+          "hold": ""
         },
         "1": {
           "tap": "q",
@@ -971,7 +971,7 @@
       "is_layer_key": false,
       "bindings": {
         "0": {
-          "tap": "&kp LS(NUMBER_5)",
+          "tap": "&ht LS(A) A",
           "hold": ""
         },
         "1": {
@@ -1119,7 +1119,7 @@
       "is_layer_key": false,
       "bindings": {
         "0": {
-          "tap": "&kp LS(NUMBER_4)",
+          "tap": "&ht LS(B) B",
           "hold": ""
         },
         "1": {
@@ -1267,7 +1267,7 @@
       "is_layer_key": false,
       "bindings": {
         "0": {
-          "tap": "&kp LS(NUMBER_3)",
+          "tap": "&ht LS(C) C",
           "hold": ""
         },
         "1": {
@@ -1415,8 +1415,8 @@
       "is_layer_key": false,
       "bindings": {
         "0": {
-          "tap": "BKS",
-          "hold": "DEL"
+          "tap": "&kp LS(GRAVE)",
+          "hold": ""
         },
         "1": {
           "tap": "&kp LS(GRAVE)",
