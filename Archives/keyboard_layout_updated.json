@@ -757,7 +757,7 @@
           "hold": ""
         },
         "2": {
-          "tap": "&kp ENTER",
+          "tap": "&kp BSPC",
           "hold": ""
         },
         "3": {
@@ -831,7 +831,7 @@
           "hold": ""
         },
         "2": {
-          "tap": "&kp TAB",
+          "tap": "&kp DEL",
           "hold": ""
         },
         "3": {
@@ -905,7 +905,7 @@
           "hold": ""
         },
         "2": {
-          "tap": "",
+          "tap": "&kp LS(NUMBER_2)",
           "hold": ""
         },
         "3": {
@@ -975,7 +975,7 @@
           "hold": ""
         },
         "1": {
-          "tap": "&kp PRCNT",
+          "tap": "&kp LS(NUMBER_5)",
           "hold": ""
         },
         "2": {
@@ -1123,7 +1123,7 @@
           "hold": ""
         },
         "1": {
-          "tap": "&kp DLLR",
+          "tap": "&kp LS(NUMBER_4)",
           "hold": ""
         },
         "2": {
@@ -1271,7 +1271,7 @@
           "hold": ""
         },
         "1": {
-          "tap": "&kp HASH",
+          "tap": "&kp LS(NUMBER_3)",
           "hold": ""
         },
         "2": {

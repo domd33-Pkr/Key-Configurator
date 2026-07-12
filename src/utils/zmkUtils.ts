@@ -228,7 +228,53 @@ export const parseBindingForDisplay = (bindingStr: string, layers?: {id: number;
   }
 
   const clean = (val: string) => {
-    return val.replace(/(KP_)?NUMBER_/g, '');
+    const trimmed = val.trim();
+    const match = trimmed.match(/^(?:RSFT|LSFT|RS|LS|LSHIFT|RSHIFT)\((.*)\)$/i);
+    if (match) {
+      const inner = match[1].trim();
+      const cleanInner = inner.replace(/(KP_)?NUMBER_/g, '');
+      const shiftMap: Record<string, string> = {
+        '1': '!',
+        '2': '@',
+        '3': '#',
+        '4': '$',
+        '5': '%',
+        '6': '^',
+        '7': '&',
+        '8': '*',
+        '9': '(',
+        '0': ')',
+        'MINUS': '_',
+        'EQUAL': '+',
+        'GRAVE': '~',
+        'LBKT': '{',
+        'RBKT': '}',
+        'BSLH': '|',
+        'SEMI': ':',
+        'SQT': '"',
+        'COMMA': '<',
+        'DOT': '>',
+        'FSLH': '?',
+        'SLASH': '?',
+      };
+      return shiftMap[cleanInner] || cleanInner;
+    }
+    const cleanedVal = trimmed.replace(/(KP_)?NUMBER_/g, '');
+    const symbolMap: Record<string, string> = {
+      'MINUS': '-',
+      'EQUAL': '=',
+      'GRAVE': '`',
+      'LBKT': '[',
+      'RBKT': ']',
+      'BSLH': '\\',
+      'SEMI': ';',
+      'SQT': '\'',
+      'COMMA': ',',
+      'DOT': '.',
+      'FSLH': '/',
+      'SLASH': '/',
+    };
+    return symbolMap[cleanedVal] || cleanedVal;
   };
 
   return { tap: clean(tap), hold: clean(hold) };
