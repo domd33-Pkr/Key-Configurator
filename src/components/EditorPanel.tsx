@@ -1129,8 +1129,9 @@ export const EditorPanel: React.FC<EditorPanelProps> = ({
                 Manual
               </button>
           </div>
-          
-          <div style={{ 
+        </div>
+        
+        <div style={{ 
             backgroundColor: 'rgba(0, 0, 0, 0.3)', 
             padding: '8px 12px', 
             borderRadius: 8, 
