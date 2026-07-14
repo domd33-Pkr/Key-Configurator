@@ -364,6 +364,7 @@ const SearchableSelect: React.FC<SearchableSelectProps> = ({
           className={`form-input ${isListening ? 'pulsing-capture' : ''}`}
           placeholder={isListening ? 'Press a physical key...' : placeholder}
           value={isListening ? '' : displayValue}
+          title={isListening ? '' : displayValue}
           onChange={(e) => setSearch(e.target.value)}
           onFocus={handleInputFocus}
           style={{ paddingRight: 32, cursor: isListening ? 'default' : 'text' }}
@@ -448,7 +449,10 @@ const SearchableSelect: React.FC<SearchableSelectProps> = ({
                         e.currentTarget.style.color = value === opt.value ? 'var(--text-primary)' : 'var(--text-secondary)';
                       }}
                     >
-                      <span>{opt.label}</span>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                        <span style={{ fontWeight: 500 }}>{opt.label}</span>
+                        <span style={{ fontSize: 11, fontFamily: 'monospace', color: 'var(--text-secondary)', opacity: 0.8 }}>{opt.value}</span>
+                      </div>
                       {value === opt.value && <Check size={14} className="text-accent-primary" />}
                     </div>
                   ))}
@@ -680,7 +684,14 @@ export const EditorPanel: React.FC<EditorPanelProps> = ({
               </select>
             </div>
             <div className="form-group" style={{ flex: 1.5 }}>
-              <label className="form-label">Keycode</label>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <label className="form-label">Keycode</label>
+                {kpParam.keycode && (
+                  <span style={{ fontSize: 11, fontFamily: 'monospace', color: '#38bdf8', fontWeight: 600, paddingBottom: 6 }}>
+                    {kpParam.keycode}
+                  </span>
+                )}
+              </div>
               <SearchableSelect
                 value={kpParam.keycode}
                 onChange={(val) => {
@@ -823,7 +834,14 @@ export const EditorPanel: React.FC<EditorPanelProps> = ({
               </select>
             </div>
             <div className="form-group" style={{ flex: 1.5 }}>
-              <label className="form-label">Key (Tap)</label>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <label className="form-label">Key (Tap)</label>
+                {param2 && (
+                  <span style={{ fontSize: 11, fontFamily: 'monospace', color: '#38bdf8', fontWeight: 600, paddingBottom: 6 }}>
+                    {param2}
+                  </span>
+                )}
+              </div>
               <SearchableSelect
                 value={param2}
                 onChange={(val) => handleParamChange('param2', val)}
@@ -889,7 +907,14 @@ export const EditorPanel: React.FC<EditorPanelProps> = ({
               </select>
             </div>
             <div className="form-group" style={{ flex: 1.5 }}>
-              <label className="form-label">Key (Tap)</label>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <label className="form-label">Key (Tap)</label>
+                {param2 && (
+                  <span style={{ fontSize: 11, fontFamily: 'monospace', color: '#38bdf8', fontWeight: 600, paddingBottom: 6 }}>
+                    {param2}
+                  </span>
+                )}
+              </div>
               <SearchableSelect
                 value={param2}
                 onChange={(val) => handleParamChange('param2', val)}
@@ -925,7 +950,14 @@ export const EditorPanel: React.FC<EditorPanelProps> = ({
                 </select>
               </div>
               <div className="form-group" style={{ flex: 1.5 }}>
-                <label className="form-label">Hold Key</label>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <label className="form-label">Hold Key</label>
+                  {holdParam.keycode && (
+                    <span style={{ fontSize: 11, fontFamily: 'monospace', color: '#38bdf8', fontWeight: 600, paddingBottom: 6 }}>
+                      {holdParam.keycode}
+                    </span>
+                  )}
+                </div>
                 <SearchableSelect
                   value={holdParam.keycode}
                   onChange={(val) => {
@@ -957,7 +989,14 @@ export const EditorPanel: React.FC<EditorPanelProps> = ({
                 </select>
               </div>
               <div className="form-group" style={{ flex: 1.5 }}>
-                <label className="form-label">Tap Key</label>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <label className="form-label">Tap Key</label>
+                  {tapParam.keycode && (
+                    <span style={{ fontSize: 11, fontFamily: 'monospace', color: '#38bdf8', fontWeight: 600, paddingBottom: 6 }}>
+                      {tapParam.keycode}
+                    </span>
+                  )}
+                </div>
                 <SearchableSelect
                   value={tapParam.keycode}
                   onChange={(val) => {
@@ -1089,7 +1128,23 @@ export const EditorPanel: React.FC<EditorPanelProps> = ({
                 <Code size={12} />
                 Manual
               </button>
-            </div>
+          </div>
+          
+          <div style={{ 
+            backgroundColor: 'rgba(0, 0, 0, 0.3)', 
+            padding: '8px 12px', 
+            borderRadius: 8, 
+            fontFamily: 'monospace', 
+            fontSize: 12, 
+            color: 'var(--text-primary)', 
+            border: '1px solid rgba(255, 255, 255, 0.08)',
+            marginBottom: 16,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between'
+          }}>
+            <span style={{ color: 'var(--text-secondary)', fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5 }}>Raw Binding:</span>
+            <code style={{ color: '#38bdf8', fontWeight: 600 }}>{currentBindingStr}</code>
           </div>
 
           {useRaw ? (

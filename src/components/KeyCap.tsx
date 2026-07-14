@@ -91,6 +91,7 @@ export const KeyCap: React.FC<KeyCapProps> = ({
 
   return (
     <div 
+      title={bindingStr}
       className={`key-cap ${isSelected ? 'selected' : ''} ${isHeld ? 'sim-held' : ''} ${isLocked ? 'sim-locked' : ''} ${isSimMode ? 'sim-mode' : ''}`}
       onClick={handleClick}
       onMouseDown={handleMouseDown}
