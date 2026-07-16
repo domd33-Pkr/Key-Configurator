@@ -276,6 +276,7 @@ export const parseBindingForDisplay = (bindingStr: string, layers?: {id: number;
       'DELTA': 'Δ',
       'OHM': 'Ω',
       'DEGREE': '°',
+      'PI': 'π',
     };
     return symbolMap[cleanedVal] || cleanedVal;
   };

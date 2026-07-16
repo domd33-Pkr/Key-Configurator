@@ -71,6 +71,7 @@ const ZMK_KEYCODES = [
   { value: 'OHM', label: 'Ohm (Ω)', category: 'Special Symbols' },
   { value: 'DELTA', label: 'Delta (Δ)', category: 'Special Symbols' },
   { value: 'DEGREE', label: 'Degree (°)', category: 'Special Symbols' },
+  { value: 'PI', label: 'Pi (π)', category: 'Special Symbols' },
 
   
   // Navigation & Control
