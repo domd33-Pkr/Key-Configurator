@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import type { KeyboardLayoutData, KeyConfig } from './types';
 import { Keyboard } from './components/Keyboard';
 import { EditorPanel } from './components/EditorPanel';
 import defaultLayoutData from './defaultLayout.json';
-import { Download, Upload, Keyboard as KeyboardIcon, Undo, Redo } from 'lucide-react';
+import { Keyboard as KeyboardIcon, Undo, Redo, RefreshCw } from 'lucide-react';
 import { parseZmkBinding, getZmkBindingString } from './utils/zmkUtils';
 
 const migrateLayoutData = (data: any): KeyboardLayoutData => {
@@ -152,6 +152,7 @@ function App() {
   // Undo/Redo history states
   const [past, setPast] = useState<KeyboardLayoutData[]>([]);
   const [future, setFuture] = useState<KeyboardLayoutData[]>([]);
+  const [isSyncing, setIsSyncing] = useState<boolean>(false);
 
   const layoutDataRef = useRef(layoutData);
   const pastRef = useRef(past);
@@ -292,6 +293,35 @@ function App() {
     });
   };
 
+  const handleSync = async () => {
+    setIsSyncing(true);
+    try {
+      const response = await fetch('/api/sync', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(layoutData),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Sync failed: HTTP ${response.status}`);
+      }
+
+      const result = await response.json();
+      if (result.success) {
+        alert("Sync completed successfully!");
+      } else {
+        alert(`Sync failed: ${result.error || 'Unknown error'}`);
+      }
+    } catch (err: any) {
+      alert(`Sync error: ${err.message}`);
+    } finally {
+      setIsSyncing(false);
+    }
+  };
+
+  /*
   const handleExport = () => {
     const jsonString = JSON.stringify(layoutData, null, 2);
     const blob = new Blob([jsonString], { type: 'application/json' });
@@ -325,6 +355,7 @@ function App() {
     reader.readAsText(file);
     e.target.value = ''; // Reset input
   };
+  */
 
   // Simulator helper methods
   const getBindingForKey = (keyIndex: number, layerId: number): string => {
@@ -844,19 +875,18 @@ function App() {
             </button>
           </div>
 
-          <label className="btn btn-secondary">
-            <Upload size={18} />
-            Import JSON
-            <input 
-              type="file" 
-              accept=".json" 
-              style={{ display: 'none' }} 
-              onChange={handleImport}
-            />
-          </label>
-          <button className="btn btn-primary" onClick={handleExport}>
-            <Download size={18} />
-            Export
+          <button 
+            className="btn btn-primary" 
+            onClick={handleSync} 
+            disabled={isSyncing}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 8,
+            }}
+          >
+            <RefreshCw size={18} className={isSyncing ? 'animate-spin' : ''} />
+            {isSyncing ? 'Syncing...' : 'Sync'}
           </button>
         </div>
       </header>

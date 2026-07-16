@@ -17,11 +17,11 @@
           "hold": ""
         },
         "2": {
-          "tap": "&mt LSHIFT LSHIFT",
+          "tap": "&trans",
           "hold": ""
         },
         "3": {
-          "tap": "&to 4",
+          "tap": "&mo 4",
           "hold": ""
         },
         "4": {
@@ -33,7 +33,7 @@
           "hold": ""
         },
         "6": {
-          "tap": "",
+          "tap": "&mo 5",
           "hold": ""
         },
         "7": {
@@ -91,11 +91,11 @@
           "hold": ""
         },
         "2": {
-          "tap": "&mt RSHIFT RSHIFT",
+          "tap": "&mo 1",
           "hold": ""
         },
         "3": {
-          "tap": "&kp LGUI",
+          "tap": "&mo 2",
           "hold": ""
         },
         "4": {
@@ -107,7 +107,7 @@
           "hold": ""
         },
         "6": {
-          "tap": "",
+          "tap": "&kp DELTA",
           "hold": ""
         },
         "7": {
@@ -169,7 +169,7 @@
           "hold": ""
         },
         "3": {
-          "tap": "",
+          "tap": "&kp LGUI",
           "hold": ""
         },
         "4": {
@@ -239,7 +239,7 @@
           "hold": "H"
         },
         "2": {
-          "tap": "&mt LALT LALT",
+          "tap": "&bt BT_SEL 2",
           "hold": ""
         },
         "3": {
@@ -251,11 +251,11 @@
           "hold": ""
         },
         "5": {
-          "tap": "",
+          "tap": "&kp LS(NUMBER_8)",
           "hold": ""
         },
         "6": {
-          "tap": "",
+          "tap": "&kp DEGREE",
           "hold": ""
         },
         "7": {
@@ -313,7 +313,7 @@
           "hold": "Q"
         },
         "2": {
-          "tap": "&mt RALT RALT",
+          "tap": "&bt BT_CLR",
           "hold": ""
         },
         "3": {
@@ -325,11 +325,11 @@
           "hold": ""
         },
         "5": {
-          "tap": "",
+          "tap": "&kp FSLH",
           "hold": ""
         },
         "6": {
-          "tap": "",
+          "tap": "&kp BSLH",
           "hold": ""
         },
         "7": {
@@ -387,7 +387,7 @@
           "hold": ""
         },
         "2": {
-          "tap": "",
+          "tap": "&bt BT_SEL 1",
           "hold": ""
         },
         "3": {
@@ -399,11 +399,11 @@
           "hold": ""
         },
         "5": {
-          "tap": "",
+          "tap": "&kp LS(EQUAL)",
           "hold": ""
         },
         "6": {
-          "tap": "",
+          "tap": "&kp OHM",
           "hold": ""
         },
         "7": {
@@ -461,7 +461,7 @@
           "hold": ""
         },
         "2": {
-          "tap": "",
+          "tap": "&bt BT_SEL 4",
           "hold": ""
         },
         "3": {
@@ -473,11 +473,11 @@
           "hold": ""
         },
         "5": {
-          "tap": "",
+          "tap": "&kp MINUS",
           "hold": ""
         },
         "6": {
-          "tap": "",
+          "tap": "&kp LS(BSLH)",
           "hold": ""
         },
         "7": {
@@ -535,7 +535,7 @@
           "hold": ""
         },
         "2": {
-          "tap": "&mt LCTRL LCTRL",
+          "tap": "&bt BT_SEL 0",
           "hold": ""
         },
         "3": {
@@ -547,11 +547,11 @@
           "hold": ""
         },
         "5": {
-          "tap": "",
+          "tap": "&kp LS(NUMBER_6)",
           "hold": ""
         },
         "6": {
-          "tap": "",
+          "tap": "&kp LS(NUMBER_3)",
           "hold": ""
         },
         "7": {
@@ -609,7 +609,7 @@
           "hold": ""
         },
         "2": {
-          "tap": "&mt RCTRL RCTRL",
+          "tap": "&bt BT_SEL 3",
           "hold": ""
         },
         "3": {
@@ -621,11 +621,11 @@
           "hold": ""
         },
         "5": {
-          "tap": "",
+          "tap": "&kp EQUAL",
           "hold": ""
         },
         "6": {
-          "tap": "",
+          "tap": "&kp LS(GRAVE)",
           "hold": ""
         },
         "7": {
@@ -683,7 +683,7 @@
           "hold": ""
         },
         "2": {
-          "tap": "&mo 3",
+          "tap": "&trans",
           "hold": ""
         },
         "3": {
@@ -691,7 +691,7 @@
           "hold": ""
         },
         "4": {
-          "tap": "",
+          "tap": "&mo 3",
           "hold": ""
         },
         "5": {
@@ -765,7 +765,7 @@
           "hold": ""
         },
         "4": {
-          "tap": "",
+          "tap": "&kp LC(Z)",
           "hold": ""
         },
         "5": {
@@ -773,7 +773,7 @@
           "hold": ""
         },
         "6": {
-          "tap": "",
+          "tap": "&ht LS(SQT) SQT",
           "hold": ""
         },
         "7": {
@@ -839,7 +839,7 @@
           "hold": ""
         },
         "4": {
-          "tap": "",
+          "tap": "&kp LC(S)",
           "hold": ""
         },
         "5": {
@@ -847,7 +847,7 @@
           "hold": ""
         },
         "6": {
-          "tap": "",
+          "tap": "&ht DOT COMMA",
           "hold": ""
         },
         "7": {
@@ -921,7 +921,7 @@
           "hold": ""
         },
         "6": {
-          "tap": "",
+          "tap": "&ht LS(SEMI) SEMI",
           "hold": ""
         },
         "7": {
@@ -979,7 +979,7 @@
           "hold": ""
         },
         "2": {
-          "tap": "&kp BSPC",
+          "tap": "&kp LS(ENTER)",
           "hold": ""
         },
         "3": {
@@ -987,15 +987,15 @@
           "hold": ""
         },
         "4": {
-          "tap": "&kp LS(NUMBER_5)",
+          "tap": "&kp LC(V)",
           "hold": ""
         },
         "5": {
-          "tap": "&kp NUMBER_1",
+          "tap": "&ht LS(A) NUMBER_1",
           "hold": ""
         },
         "6": {
-          "tap": "&kp LS(NUMBER_5)",
+          "tap": "&ht LS(NUMBER_0) LS(NUMBER_9)",
           "hold": ""
         },
         "7": {
@@ -1053,7 +1053,7 @@
           "hold": "Y"
         },
         "2": {
-          "tap": "&kp LEFT",
+          "tap": "&kp LS(TAB)",
           "hold": ""
         },
         "3": {
@@ -1061,15 +1061,15 @@
           "hold": ""
         },
         "4": {
-          "tap": "",
+          "tap": "&kp LC(A)",
           "hold": ""
         },
         "5": {
-          "tap": "&kp NUMBER_4",
+          "tap": "&ht LS(D) NUMBER_4",
           "hold": ""
         },
         "6": {
-          "tap": "",
+          "tap": "&kp LS(NUMBER_7)",
           "hold": ""
         },
         "7": {
@@ -1127,7 +1127,7 @@
           "hold": ""
         },
         "2": {
-          "tap": "&kp UP",
+          "tap": "&kp ENTER",
           "hold": ""
         },
         "3": {
@@ -1135,15 +1135,15 @@
           "hold": ""
         },
         "4": {
-          "tap": "&kp LS(NUMBER_4)",
+          "tap": "&kp LC(C)",
           "hold": ""
         },
         "5": {
-          "tap": "&kp NUMBER_2",
+          "tap": "&ht LS(B) NUMBER_2",
           "hold": ""
         },
         "6": {
-          "tap": "&kp LS(NUMBER_4)",
+          "tap": "&ht LS(RBKT) LS(LBKT)",
           "hold": ""
         },
         "7": {
@@ -1201,7 +1201,7 @@
           "hold": "J"
         },
         "2": {
-          "tap": "&kp DOWN",
+          "tap": "&kp TAB",
           "hold": ""
         },
         "3": {
@@ -1209,15 +1209,15 @@
           "hold": ""
         },
         "4": {
-          "tap": "",
+          "tap": "&kp LC(F)",
           "hold": ""
         },
         "5": {
-          "tap": "&kp NUMBER_5",
+          "tap": "&ht LS(E) NUMBER_5",
           "hold": ""
         },
         "6": {
-          "tap": "",
+          "tap": "&kp LS(NUMBER_5)",
           "hold": ""
         },
         "7": {
@@ -1275,7 +1275,7 @@
           "hold": ""
         },
         "2": {
-          "tap": "&kp DEL",
+          "tap": "&trans",
           "hold": ""
         },
         "3": {
@@ -1283,15 +1283,15 @@
           "hold": ""
         },
         "4": {
-          "tap": "&kp GRAVE",
+          "tap": "&kp LC(X)",
           "hold": ""
         },
         "5": {
-          "tap": "&kp NUMBER_3",
+          "tap": "&ht LS(C) NUMBER_3",
           "hold": ""
         },
         "6": {
-          "tap": "&kp LS(NUMBER_3)",
+          "tap": "&ht RBKT LBKT",
           "hold": ""
         },
         "7": {
@@ -1349,7 +1349,7 @@
           "hold": ""
         },
         "2": {
-          "tap": "&kp RIGHT",
+          "tap": "&trans",
           "hold": ""
         },
         "3": {
@@ -1357,15 +1357,15 @@
           "hold": ""
         },
         "4": {
-          "tap": "",
+          "tap": "&kp LC(H)",
           "hold": ""
         },
         "5": {
-          "tap": "&kp NUMBER_6",
+          "tap": "&ht LS(F) NUMBER_6",
           "hold": ""
         },
         "6": {
-          "tap": "",
+          "tap": "&kp LS(NUMBER_4)",
           "hold": ""
         },
         "7": {
@@ -1431,7 +1431,7 @@
           "hold": ""
         },
         "4": {
-          "tap": "&kp RALT(SEMI)",
+          "tap": "&kp LC(Y)",
           "hold": ""
         },
         "5": {
@@ -1439,7 +1439,7 @@
           "hold": ""
         },
         "6": {
-          "tap": "&kp LS(GRAVE)",
+          "tap": "&ht LS(DOT) LS(COMMA)",
           "hold": ""
         },
         "7": {
