@@ -8,67 +8,67 @@
       "finger": "thumb",
       "is_layer_key": false,
       "bindings": {
-        "0": {
-          "tap": "&mo 5",
+        "layer_0": {
+          "tap": "&mo layer_5",
           "hold": ""
         },
-        "1": {
+        "layer_1": {
           "tap": "&ht LS(W) W",
           "hold": ""
         },
-        "2": {
+        "layer_2": {
           "tap": "&trans",
           "hold": ""
         },
-        "3": {
-          "tap": "&mo 4",
+        "layer_3": {
+          "tap": "&mo layer_4",
           "hold": ""
         },
-        "4": {
+        "layer_4": {
           "tap": "",
           "hold": ""
         },
-        "5": {
+        "layer_5": {
           "tap": "",
           "hold": ""
         },
-        "6": {
-          "tap": "&mo 5",
+        "layer_6": {
+          "tap": "&mo layer_5",
           "hold": ""
         },
-        "7": {
+        "layer_7": {
           "tap": "",
           "hold": ""
         },
-        "8": {
+        "layer_8": {
           "tap": "",
           "hold": ""
         },
-        "9": {
+        "layer_9": {
           "tap": "",
           "hold": ""
         },
-        "10": {
+        "layer_10": {
           "tap": "",
           "hold": ""
         },
-        "11": {
+        "layer_11": {
           "tap": "",
           "hold": ""
         },
-        "12": {
+        "layer_12": {
           "tap": "",
           "hold": ""
         },
-        "13": {
+        "layer_13": {
           "tap": "",
           "hold": ""
         },
-        "14": {
+        "layer_14": {
           "tap": "",
           "hold": ""
         },
-        "15": {
+        "layer_15": {
           "tap": "",
           "hold": ""
         }
@@ -82,67 +82,67 @@
       "finger": "thumb",
       "is_layer_key": false,
       "bindings": {
-        "0": {
-          "tap": "&sl 1",
+        "layer_0": {
+          "tap": "&sl layer_1",
           "hold": ""
         },
-        "1": {
+        "layer_1": {
           "tap": "&trans",
           "hold": ""
         },
-        "2": {
-          "tap": "&mo 1",
+        "layer_2": {
+          "tap": "&mo layer_1",
           "hold": ""
         },
-        "3": {
-          "tap": "&mo 2",
+        "layer_3": {
+          "tap": "&mo layer_2",
           "hold": ""
         },
-        "4": {
+        "layer_4": {
           "tap": "",
           "hold": ""
         },
-        "5": {
+        "layer_5": {
           "tap": "",
           "hold": ""
         },
-        "6": {
+        "layer_6": {
           "tap": "&kp DELTA",
           "hold": ""
         },
-        "7": {
+        "layer_7": {
           "tap": "",
           "hold": ""
         },
-        "8": {
+        "layer_8": {
           "tap": "",
           "hold": ""
         },
-        "9": {
+        "layer_9": {
           "tap": "",
           "hold": ""
         },
-        "10": {
+        "layer_10": {
           "tap": "",
           "hold": ""
         },
-        "11": {
+        "layer_11": {
           "tap": "",
           "hold": ""
         },
-        "12": {
+        "layer_12": {
           "tap": "",
           "hold": ""
         },
-        "13": {
+        "layer_13": {
           "tap": "",
           "hold": ""
         },
-        "14": {
+        "layer_14": {
           "tap": "",
           "hold": ""
         },
-        "15": {
+        "layer_15": {
           "tap": "",
           "hold": ""
         }
@@ -156,67 +156,67 @@
       "finger": "thumb",
       "is_layer_key": false,
       "bindings": {
-        "0": {
-          "tap": "&mo 7",
+        "layer_0": {
+          "tap": "&mo layer_7",
           "hold": ""
         },
-        "1": {
-          "tap": "x",
-          "hold": "X"
+        "layer_1": {
+          "tap": "&kp x",
+          "hold": "&kp X"
         },
-        "2": {
+        "layer_2": {
           "tap": "&mt LGUI LGUI",
           "hold": ""
         },
-        "3": {
+        "layer_3": {
           "tap": "&kp LGUI",
           "hold": ""
         },
-        "4": {
+        "layer_4": {
           "tap": "",
           "hold": ""
         },
-        "5": {
+        "layer_5": {
           "tap": "",
           "hold": ""
         },
-        "6": {
+        "layer_6": {
           "tap": "&kp PI",
           "hold": ""
         },
-        "7": {
+        "layer_7": {
           "tap": "",
           "hold": ""
         },
-        "8": {
+        "layer_8": {
           "tap": "",
           "hold": ""
         },
-        "9": {
+        "layer_9": {
           "tap": "",
           "hold": ""
         },
-        "10": {
+        "layer_10": {
           "tap": "",
           "hold": ""
         },
-        "11": {
+        "layer_11": {
           "tap": "",
           "hold": ""
         },
-        "12": {
+        "layer_12": {
           "tap": "",
           "hold": ""
         },
-        "13": {
+        "layer_13": {
           "tap": "",
           "hold": ""
         },
-        "14": {
+        "layer_14": {
           "tap": "",
           "hold": ""
         },
-        "15": {
+        "layer_15": {
           "tap": "",
           "hold": ""
         }
@@ -230,67 +230,67 @@
       "finger": "index",
       "is_layer_key": false,
       "bindings": {
-        "0": {
+        "layer_0": {
           "tap": "&ht LS(Q) Q",
           "hold": ""
         },
-        "1": {
-          "tap": "h",
-          "hold": "H"
+        "layer_1": {
+          "tap": "&kp h",
+          "hold": "&kp H"
         },
-        "2": {
+        "layer_2": {
           "tap": "&bt BT_SEL 2",
           "hold": ""
         },
-        "3": {
+        "layer_3": {
           "tap": "&kp LALT",
           "hold": ""
         },
-        "4": {
+        "layer_4": {
           "tap": "",
           "hold": ""
         },
-        "5": {
+        "layer_5": {
           "tap": "&kp LS(NUMBER_8)",
           "hold": ""
         },
-        "6": {
+        "layer_6": {
           "tap": "&kp DEGREE",
           "hold": ""
         },
-        "7": {
+        "layer_7": {
           "tap": "",
           "hold": ""
         },
-        "8": {
+        "layer_8": {
           "tap": "",
           "hold": ""
         },
-        "9": {
+        "layer_9": {
           "tap": "",
           "hold": ""
         },
-        "10": {
+        "layer_10": {
           "tap": "",
           "hold": ""
         },
-        "11": {
+        "layer_11": {
           "tap": "",
           "hold": ""
         },
-        "12": {
+        "layer_12": {
           "tap": "",
           "hold": ""
         },
-        "13": {
+        "layer_13": {
           "tap": "",
           "hold": ""
         },
-        "14": {
+        "layer_14": {
           "tap": "",
           "hold": ""
         },
-        "15": {
+        "layer_15": {
           "tap": "",
           "hold": ""
         }
@@ -304,67 +304,67 @@
       "finger": "index",
       "is_layer_key": false,
       "bindings": {
-        "0": {
+        "layer_0": {
           "tap": "&ht LS(N) N",
           "hold": ""
         },
-        "1": {
-          "tap": "q",
-          "hold": "Q"
+        "layer_1": {
+          "tap": "&kp q",
+          "hold": "&kp Q"
         },
-        "2": {
+        "layer_2": {
           "tap": "&bt BT_CLR",
           "hold": ""
         },
-        "3": {
+        "layer_3": {
           "tap": "&kp RALT",
           "hold": ""
         },
-        "4": {
+        "layer_4": {
           "tap": "",
           "hold": ""
         },
-        "5": {
+        "layer_5": {
           "tap": "&kp FSLH",
           "hold": ""
         },
-        "6": {
+        "layer_6": {
           "tap": "&kp BSLH",
           "hold": ""
         },
-        "7": {
+        "layer_7": {
           "tap": "",
           "hold": ""
         },
-        "8": {
+        "layer_8": {
           "tap": "",
           "hold": ""
         },
-        "9": {
+        "layer_9": {
           "tap": "",
           "hold": ""
         },
-        "10": {
+        "layer_10": {
           "tap": "",
           "hold": ""
         },
-        "11": {
+        "layer_11": {
           "tap": "",
           "hold": ""
         },
-        "12": {
+        "layer_12": {
           "tap": "",
           "hold": ""
         },
-        "13": {
+        "layer_13": {
           "tap": "",
           "hold": ""
         },
-        "14": {
+        "layer_14": {
           "tap": "",
           "hold": ""
         },
-        "15": {
+        "layer_15": {
           "tap": "",
           "hold": ""
         }
@@ -378,67 +378,67 @@
       "finger": "middle",
       "is_layer_key": true,
       "bindings": {
-        "0": {
+        "layer_0": {
           "tap": "&ht LS(D) D",
           "hold": ""
         },
-        "1": {
+        "layer_1": {
           "tap": "",
           "hold": ""
         },
-        "2": {
+        "layer_2": {
           "tap": "&bt BT_SEL 1",
           "hold": ""
         },
-        "3": {
+        "layer_3": {
           "tap": "&kp LSHIFT",
           "hold": ""
         },
-        "4": {
+        "layer_4": {
           "tap": "",
           "hold": ""
         },
-        "5": {
+        "layer_5": {
           "tap": "&kp LS(EQUAL)",
           "hold": ""
         },
-        "6": {
+        "layer_6": {
           "tap": "&kp OHM",
           "hold": ""
         },
-        "7": {
+        "layer_7": {
           "tap": "",
           "hold": ""
         },
-        "8": {
+        "layer_8": {
           "tap": "",
           "hold": ""
         },
-        "9": {
+        "layer_9": {
           "tap": "",
           "hold": ""
         },
-        "10": {
+        "layer_10": {
           "tap": "",
           "hold": ""
         },
-        "11": {
+        "layer_11": {
           "tap": "",
           "hold": ""
         },
-        "12": {
+        "layer_12": {
           "tap": "",
           "hold": ""
         },
-        "13": {
+        "layer_13": {
           "tap": "",
           "hold": ""
         },
-        "14": {
+        "layer_14": {
           "tap": "",
           "hold": ""
         },
-        "15": {
+        "layer_15": {
           "tap": "",
           "hold": ""
         }
@@ -452,67 +452,67 @@
       "finger": "middle",
       "is_layer_key": false,
       "bindings": {
-        "0": {
+        "layer_0": {
           "tap": "&ht LS(D) D",
           "hold": ""
         },
-        "1": {
+        "layer_1": {
           "tap": "&ht RSHIFT(Z) Z",
           "hold": ""
         },
-        "2": {
+        "layer_2": {
           "tap": "&bt BT_SEL 4",
           "hold": ""
         },
-        "3": {
+        "layer_3": {
           "tap": "",
           "hold": ""
         },
-        "4": {
+        "layer_4": {
           "tap": "",
           "hold": ""
         },
-        "5": {
+        "layer_5": {
           "tap": "&kp MINUS",
           "hold": ""
         },
-        "6": {
+        "layer_6": {
           "tap": "&kp LS(BSLH)",
           "hold": ""
         },
-        "7": {
+        "layer_7": {
           "tap": "",
           "hold": ""
         },
-        "8": {
+        "layer_8": {
           "tap": "",
           "hold": ""
         },
-        "9": {
+        "layer_9": {
           "tap": "",
           "hold": ""
         },
-        "10": {
+        "layer_10": {
           "tap": "",
           "hold": ""
         },
-        "11": {
+        "layer_11": {
           "tap": "",
           "hold": ""
         },
-        "12": {
+        "layer_12": {
           "tap": "",
           "hold": ""
         },
-        "13": {
+        "layer_13": {
           "tap": "",
           "hold": ""
         },
-        "14": {
+        "layer_14": {
           "tap": "",
           "hold": ""
         },
-        "15": {
+        "layer_15": {
           "tap": "",
           "hold": ""
         }
@@ -526,67 +526,67 @@
       "finger": "ring",
       "is_layer_key": false,
       "bindings": {
-        "0": {
-          "tap": "g",
-          "hold": "G"
+        "layer_0": {
+          "tap": "&kp g",
+          "hold": "&kp G"
         },
-        "1": {
+        "layer_1": {
           "tap": "",
           "hold": ""
         },
-        "2": {
+        "layer_2": {
           "tap": "&bt BT_SEL 0",
           "hold": ""
         },
-        "3": {
+        "layer_3": {
           "tap": "&kp LCTRL",
           "hold": ""
         },
-        "4": {
+        "layer_4": {
           "tap": "",
           "hold": ""
         },
-        "5": {
+        "layer_5": {
           "tap": "&kp LS(NUMBER_6)",
           "hold": ""
         },
-        "6": {
+        "layer_6": {
           "tap": "&kp LS(NUMBER_3)",
           "hold": ""
         },
-        "7": {
+        "layer_7": {
           "tap": "",
           "hold": ""
         },
-        "8": {
+        "layer_8": {
           "tap": "",
           "hold": ""
         },
-        "9": {
+        "layer_9": {
           "tap": "",
           "hold": ""
         },
-        "10": {
+        "layer_10": {
           "tap": "",
           "hold": ""
         },
-        "11": {
+        "layer_11": {
           "tap": "",
           "hold": ""
         },
-        "12": {
+        "layer_12": {
           "tap": "",
           "hold": ""
         },
-        "13": {
+        "layer_13": {
           "tap": "",
           "hold": ""
         },
-        "14": {
+        "layer_14": {
           "tap": "",
           "hold": ""
         },
-        "15": {
+        "layer_15": {
           "tap": "",
           "hold": ""
         }
@@ -600,67 +600,67 @@
       "finger": "ring",
       "is_layer_key": false,
       "bindings": {
-        "0": {
-          "tap": "p",
-          "hold": "P"
+        "layer_0": {
+          "tap": "&kp p",
+          "hold": "&kp P"
         },
-        "1": {
+        "layer_1": {
           "tap": "",
           "hold": ""
         },
-        "2": {
+        "layer_2": {
           "tap": "&bt BT_SEL 3",
           "hold": ""
         },
-        "3": {
+        "layer_3": {
           "tap": "",
           "hold": ""
         },
-        "4": {
+        "layer_4": {
           "tap": "",
           "hold": ""
         },
-        "5": {
+        "layer_5": {
           "tap": "&kp EQUAL",
           "hold": ""
         },
-        "6": {
+        "layer_6": {
           "tap": "&kp LS(GRAVE)",
           "hold": ""
         },
-        "7": {
+        "layer_7": {
           "tap": "",
           "hold": ""
         },
-        "8": {
+        "layer_8": {
           "tap": "",
           "hold": ""
         },
-        "9": {
+        "layer_9": {
           "tap": "",
           "hold": ""
         },
-        "10": {
+        "layer_10": {
           "tap": "",
           "hold": ""
         },
-        "11": {
+        "layer_11": {
           "tap": "",
           "hold": ""
         },
-        "12": {
+        "layer_12": {
           "tap": "",
           "hold": ""
         },
-        "13": {
+        "layer_13": {
           "tap": "",
           "hold": ""
         },
-        "14": {
+        "layer_14": {
           "tap": "",
           "hold": ""
         },
-        "15": {
+        "layer_15": {
           "tap": "",
           "hold": ""
         }
@@ -674,67 +674,67 @@
       "finger": "pinky",
       "is_layer_key": false,
       "bindings": {
-        "0": {
-          "tap": "&mo 3",
+        "layer_0": {
+          "tap": "&mo layer_3",
           "hold": ""
         },
-        "1": {
-          "tap": "&mo 2",
+        "layer_1": {
+          "tap": "&mo layer_2",
           "hold": ""
         },
-        "2": {
+        "layer_2": {
           "tap": "&trans",
           "hold": ""
         },
-        "3": {
+        "layer_3": {
           "tap": "",
           "hold": ""
         },
-        "4": {
-          "tap": "&mo 3",
+        "layer_4": {
+          "tap": "&mo layer_3",
           "hold": ""
         },
-        "5": {
-          "tap": "&mo 6",
+        "layer_5": {
+          "tap": "&mo layer_6",
           "hold": ""
         },
-        "6": {
+        "layer_6": {
           "tap": "",
           "hold": ""
         },
-        "7": {
+        "layer_7": {
           "tap": "",
           "hold": ""
         },
-        "8": {
+        "layer_8": {
           "tap": "",
           "hold": ""
         },
-        "9": {
+        "layer_9": {
           "tap": "",
           "hold": ""
         },
-        "10": {
+        "layer_10": {
           "tap": "",
           "hold": ""
         },
-        "11": {
+        "layer_11": {
           "tap": "",
           "hold": ""
         },
-        "12": {
+        "layer_12": {
           "tap": "",
           "hold": ""
         },
-        "13": {
+        "layer_13": {
           "tap": "",
           "hold": ""
         },
-        "14": {
+        "layer_14": {
           "tap": "",
           "hold": ""
         },
-        "15": {
+        "layer_15": {
           "tap": "",
           "hold": ""
         }
@@ -748,67 +748,67 @@
       "finger": "thumb",
       "is_layer_key": false,
       "bindings": {
-        "0": {
+        "layer_0": {
           "tap": "&ht LS(A) A",
           "hold": ""
         },
-        "1": {
+        "layer_1": {
           "tap": "&ht LS(SQT) SQT",
           "hold": ""
         },
-        "2": {
+        "layer_2": {
           "tap": "&kp BSPC",
           "hold": ""
         },
-        "3": {
+        "layer_3": {
           "tap": "&kp PG_DN",
           "hold": ""
         },
-        "4": {
+        "layer_4": {
           "tap": "&kp LC(Z)",
           "hold": ""
         },
-        "5": {
+        "layer_5": {
           "tap": "&kp NUMBER_7",
           "hold": ""
         },
-        "6": {
+        "layer_6": {
           "tap": "&ht LS(SQT) SQT",
           "hold": ""
         },
-        "7": {
+        "layer_7": {
           "tap": "",
           "hold": ""
         },
-        "8": {
+        "layer_8": {
           "tap": "",
           "hold": ""
         },
-        "9": {
+        "layer_9": {
           "tap": "",
           "hold": ""
         },
-        "10": {
+        "layer_10": {
           "tap": "",
           "hold": ""
         },
-        "11": {
+        "layer_11": {
           "tap": "",
           "hold": ""
         },
-        "12": {
+        "layer_12": {
           "tap": "",
           "hold": ""
         },
-        "13": {
+        "layer_13": {
           "tap": "",
           "hold": ""
         },
-        "14": {
+        "layer_14": {
           "tap": "",
           "hold": ""
         },
-        "15": {
+        "layer_15": {
           "tap": "",
           "hold": ""
         }
@@ -822,67 +822,67 @@
       "finger": "thumb",
       "is_layer_key": false,
       "bindings": {
-        "0": {
+        "layer_0": {
           "tap": "&ht C C",
           "hold": ""
         },
-        "1": {
+        "layer_1": {
           "tap": "&ht DOT COMMA",
           "hold": ""
         },
-        "2": {
+        "layer_2": {
           "tap": "&kp DEL",
           "hold": ""
         },
-        "3": {
+        "layer_3": {
           "tap": "&kp PG_UP",
           "hold": ""
         },
-        "4": {
+        "layer_4": {
           "tap": "&kp LC(S)",
           "hold": ""
         },
-        "5": {
+        "layer_5": {
           "tap": "&kp NUMBER_8",
           "hold": ""
         },
-        "6": {
+        "layer_6": {
           "tap": "&ht DOT COMMA",
           "hold": ""
         },
-        "7": {
+        "layer_7": {
           "tap": "",
           "hold": ""
         },
-        "8": {
+        "layer_8": {
           "tap": "",
           "hold": ""
         },
-        "9": {
+        "layer_9": {
           "tap": "",
           "hold": ""
         },
-        "10": {
+        "layer_10": {
           "tap": "",
           "hold": ""
         },
-        "11": {
+        "layer_11": {
           "tap": "",
           "hold": ""
         },
-        "12": {
+        "layer_12": {
           "tap": "",
           "hold": ""
         },
-        "13": {
+        "layer_13": {
           "tap": "",
           "hold": ""
         },
-        "14": {
+        "layer_14": {
           "tap": "",
           "hold": ""
         },
-        "15": {
+        "layer_15": {
           "tap": "",
           "hold": ""
         }
@@ -896,67 +896,67 @@
       "finger": "thumb",
       "is_layer_key": false,
       "bindings": {
-        "0": {
+        "layer_0": {
           "tap": "&ht LS(O) O",
           "hold": ""
         },
-        "1": {
+        "layer_1": {
           "tap": "&ht LS(SEMI) SEMI",
           "hold": ""
         },
-        "2": {
+        "layer_2": {
           "tap": "&kp LS(NUMBER_2)",
           "hold": ""
         },
-        "3": {
+        "layer_3": {
           "tap": "&trans",
           "hold": ""
         },
-        "4": {
+        "layer_4": {
           "tap": "",
           "hold": ""
         },
-        "5": {
+        "layer_5": {
           "tap": "&kp NUMBER_9",
           "hold": ""
         },
-        "6": {
+        "layer_6": {
           "tap": "&ht LS(SEMI) SEMI",
           "hold": ""
         },
-        "7": {
+        "layer_7": {
           "tap": "",
           "hold": ""
         },
-        "8": {
+        "layer_8": {
           "tap": "",
           "hold": ""
         },
-        "9": {
+        "layer_9": {
           "tap": "",
           "hold": ""
         },
-        "10": {
+        "layer_10": {
           "tap": "",
           "hold": ""
         },
-        "11": {
+        "layer_11": {
           "tap": "",
           "hold": ""
         },
-        "12": {
+        "layer_12": {
           "tap": "",
           "hold": ""
         },
-        "13": {
+        "layer_13": {
           "tap": "",
           "hold": ""
         },
-        "14": {
+        "layer_14": {
           "tap": "",
           "hold": ""
         },
-        "15": {
+        "layer_15": {
           "tap": "",
           "hold": ""
         }
@@ -970,67 +970,67 @@
       "finger": "index",
       "is_layer_key": false,
       "bindings": {
-        "0": {
+        "layer_0": {
           "tap": "&ht LS(A) A",
           "hold": ""
         },
-        "1": {
+        "layer_1": {
           "tap": "&kp LS(NUMBER_5)",
           "hold": ""
         },
-        "2": {
+        "layer_2": {
           "tap": "&kp LS(ENTER)",
           "hold": ""
         },
-        "3": {
+        "layer_3": {
           "tap": "&kp HOME",
           "hold": ""
         },
-        "4": {
+        "layer_4": {
           "tap": "&kp LC(V)",
           "hold": ""
         },
-        "5": {
+        "layer_5": {
           "tap": "&ht LS(A) NUMBER_1",
           "hold": ""
         },
-        "6": {
+        "layer_6": {
           "tap": "&ht LS(NUMBER_0) LS(NUMBER_9)",
           "hold": ""
         },
-        "7": {
+        "layer_7": {
           "tap": "",
           "hold": ""
         },
-        "8": {
+        "layer_8": {
           "tap": "",
           "hold": ""
         },
-        "9": {
+        "layer_9": {
           "tap": "",
           "hold": ""
         },
-        "10": {
+        "layer_10": {
           "tap": "",
           "hold": ""
         },
-        "11": {
+        "layer_11": {
           "tap": "",
           "hold": ""
         },
-        "12": {
+        "layer_12": {
           "tap": "",
           "hold": ""
         },
-        "13": {
+        "layer_13": {
           "tap": "",
           "hold": ""
         },
-        "14": {
+        "layer_14": {
           "tap": "",
           "hold": ""
         },
-        "15": {
+        "layer_15": {
           "tap": "",
           "hold": ""
         }
@@ -1044,67 +1044,67 @@
       "finger": "index",
       "is_layer_key": false,
       "bindings": {
-        "0": {
+        "layer_0": {
           "tap": "&ht LS(I) I",
           "hold": ""
         },
-        "1": {
-          "tap": "y",
-          "hold": "Y"
+        "layer_1": {
+          "tap": "&kp y",
+          "hold": "&kp Y"
         },
-        "2": {
+        "layer_2": {
           "tap": "&kp LS(TAB)",
           "hold": ""
         },
-        "3": {
+        "layer_3": {
           "tap": "&kp LEFT",
           "hold": ""
         },
-        "4": {
+        "layer_4": {
           "tap": "&kp LC(A)",
           "hold": ""
         },
-        "5": {
+        "layer_5": {
           "tap": "&ht LS(D) NUMBER_4",
           "hold": ""
         },
-        "6": {
+        "layer_6": {
           "tap": "&kp LS(NUMBER_7)",
           "hold": ""
         },
-        "7": {
+        "layer_7": {
           "tap": "",
           "hold": ""
         },
-        "8": {
+        "layer_8": {
           "tap": "",
           "hold": ""
         },
-        "9": {
+        "layer_9": {
           "tap": "",
           "hold": ""
         },
-        "10": {
+        "layer_10": {
           "tap": "",
           "hold": ""
         },
-        "11": {
+        "layer_11": {
           "tap": "",
           "hold": ""
         },
-        "12": {
+        "layer_12": {
           "tap": "",
           "hold": ""
         },
-        "13": {
+        "layer_13": {
           "tap": "",
           "hold": ""
         },
-        "14": {
+        "layer_14": {
           "tap": "",
           "hold": ""
         },
-        "15": {
+        "layer_15": {
           "tap": "",
           "hold": ""
         }
@@ -1118,67 +1118,67 @@
       "finger": "middle",
       "is_layer_key": false,
       "bindings": {
-        "0": {
+        "layer_0": {
           "tap": "&ht LS(B) B",
           "hold": ""
         },
-        "1": {
+        "layer_1": {
           "tap": "&kp LS(NUMBER_4)",
           "hold": ""
         },
-        "2": {
+        "layer_2": {
           "tap": "&kp ENTER",
           "hold": ""
         },
-        "3": {
+        "layer_3": {
           "tap": "&kp UP",
           "hold": ""
         },
-        "4": {
+        "layer_4": {
           "tap": "&kp LC(C)",
           "hold": ""
         },
-        "5": {
+        "layer_5": {
           "tap": "&ht LS(B) NUMBER_2",
           "hold": ""
         },
-        "6": {
+        "layer_6": {
           "tap": "&ht LS(RBKT) LS(LBKT)",
           "hold": ""
         },
-        "7": {
+        "layer_7": {
           "tap": "",
           "hold": ""
         },
-        "8": {
+        "layer_8": {
           "tap": "",
           "hold": ""
         },
-        "9": {
+        "layer_9": {
           "tap": "",
           "hold": ""
         },
-        "10": {
+        "layer_10": {
           "tap": "",
           "hold": ""
         },
-        "11": {
+        "layer_11": {
           "tap": "",
           "hold": ""
         },
-        "12": {
+        "layer_12": {
           "tap": "",
           "hold": ""
         },
-        "13": {
+        "layer_13": {
           "tap": "",
           "hold": ""
         },
-        "14": {
+        "layer_14": {
           "tap": "",
           "hold": ""
         },
-        "15": {
+        "layer_15": {
           "tap": "",
           "hold": ""
         }
@@ -1192,67 +1192,67 @@
       "finger": "middle",
       "is_layer_key": false,
       "bindings": {
-        "0": {
-          "tap": "e",
-          "hold": "E"
+        "layer_0": {
+          "tap": "&kp e",
+          "hold": "&kp E"
         },
-        "1": {
-          "tap": "j",
-          "hold": "J"
+        "layer_1": {
+          "tap": "&kp j",
+          "hold": "&kp J"
         },
-        "2": {
+        "layer_2": {
           "tap": "&kp TAB",
           "hold": ""
         },
-        "3": {
+        "layer_3": {
           "tap": "&kp DOWN",
           "hold": ""
         },
-        "4": {
+        "layer_4": {
           "tap": "&kp LC(F)",
           "hold": ""
         },
-        "5": {
+        "layer_5": {
           "tap": "&ht LS(E) NUMBER_5",
           "hold": ""
         },
-        "6": {
+        "layer_6": {
           "tap": "&kp LS(NUMBER_5)",
           "hold": ""
         },
-        "7": {
+        "layer_7": {
           "tap": "",
           "hold": ""
         },
-        "8": {
+        "layer_8": {
           "tap": "",
           "hold": ""
         },
-        "9": {
+        "layer_9": {
           "tap": "",
           "hold": ""
         },
-        "10": {
+        "layer_10": {
           "tap": "",
           "hold": ""
         },
-        "11": {
+        "layer_11": {
           "tap": "",
           "hold": ""
         },
-        "12": {
+        "layer_12": {
           "tap": "",
           "hold": ""
         },
-        "13": {
+        "layer_13": {
           "tap": "",
           "hold": ""
         },
-        "14": {
+        "layer_14": {
           "tap": "",
           "hold": ""
         },
-        "15": {
+        "layer_15": {
           "tap": "",
           "hold": ""
         }
@@ -1266,67 +1266,67 @@
       "finger": "ring",
       "is_layer_key": false,
       "bindings": {
-        "0": {
+        "layer_0": {
           "tap": "&ht LS(C) C",
           "hold": ""
         },
-        "1": {
+        "layer_1": {
           "tap": "&kp LS(NUMBER_3)",
           "hold": ""
         },
-        "2": {
+        "layer_2": {
           "tap": "&trans",
           "hold": ""
         },
-        "3": {
+        "layer_3": {
           "tap": "&kp END",
           "hold": ""
         },
-        "4": {
+        "layer_4": {
           "tap": "&kp LC(X)",
           "hold": ""
         },
-        "5": {
+        "layer_5": {
           "tap": "&ht LS(C) NUMBER_3",
           "hold": ""
         },
-        "6": {
+        "layer_6": {
           "tap": "&ht RBKT LBKT",
           "hold": ""
         },
-        "7": {
+        "layer_7": {
           "tap": "",
           "hold": ""
         },
-        "8": {
+        "layer_8": {
           "tap": "",
           "hold": ""
         },
-        "9": {
+        "layer_9": {
           "tap": "",
           "hold": ""
         },
-        "10": {
+        "layer_10": {
           "tap": "",
           "hold": ""
         },
-        "11": {
+        "layer_11": {
           "tap": "",
           "hold": ""
         },
-        "12": {
+        "layer_12": {
           "tap": "",
           "hold": ""
         },
-        "13": {
+        "layer_13": {
           "tap": "",
           "hold": ""
         },
-        "14": {
+        "layer_14": {
           "tap": "",
           "hold": ""
         },
-        "15": {
+        "layer_15": {
           "tap": "",
           "hold": ""
         }
@@ -1340,67 +1340,67 @@
       "finger": "ring",
       "is_layer_key": false,
       "bindings": {
-        "0": {
-          "tap": "u",
-          "hold": "U"
+        "layer_0": {
+          "tap": "&kp u",
+          "hold": "&kp U"
         },
-        "1": {
-          "tap": "-",
+        "layer_1": {
+          "tap": "&kp -",
           "hold": ""
         },
-        "2": {
+        "layer_2": {
           "tap": "&trans",
           "hold": ""
         },
-        "3": {
+        "layer_3": {
           "tap": "&kp RIGHT",
           "hold": ""
         },
-        "4": {
+        "layer_4": {
           "tap": "&kp LC(H)",
           "hold": ""
         },
-        "5": {
+        "layer_5": {
           "tap": "&ht LS(F) NUMBER_6",
           "hold": ""
         },
-        "6": {
+        "layer_6": {
           "tap": "&kp LS(NUMBER_4)",
           "hold": ""
         },
-        "7": {
+        "layer_7": {
           "tap": "",
           "hold": ""
         },
-        "8": {
+        "layer_8": {
           "tap": "",
           "hold": ""
         },
-        "9": {
+        "layer_9": {
           "tap": "",
           "hold": ""
         },
-        "10": {
+        "layer_10": {
           "tap": "",
           "hold": ""
         },
-        "11": {
+        "layer_11": {
           "tap": "",
           "hold": ""
         },
-        "12": {
+        "layer_12": {
           "tap": "",
           "hold": ""
         },
-        "13": {
+        "layer_13": {
           "tap": "",
           "hold": ""
         },
-        "14": {
+        "layer_14": {
           "tap": "",
           "hold": ""
         },
-        "15": {
+        "layer_15": {
           "tap": "",
           "hold": ""
         }
@@ -1414,67 +1414,67 @@
       "finger": "pinky",
       "is_layer_key": false,
       "bindings": {
-        "0": {
+        "layer_0": {
           "tap": "&kp LS(GRAVE)",
           "hold": ""
         },
-        "1": {
+        "layer_1": {
           "tap": "&kp LS(GRAVE)",
           "hold": ""
         },
-        "2": {
+        "layer_2": {
           "tap": "&kp ESC",
           "hold": ""
         },
-        "3": {
+        "layer_3": {
           "tap": "",
           "hold": ""
         },
-        "4": {
+        "layer_4": {
           "tap": "&kp LC(Y)",
           "hold": ""
         },
-        "5": {
+        "layer_5": {
           "tap": "&kp NUMBER_0",
           "hold": ""
         },
-        "6": {
+        "layer_6": {
           "tap": "&ht LS(DOT) LS(COMMA)",
           "hold": ""
         },
-        "7": {
+        "layer_7": {
           "tap": "",
           "hold": ""
         },
-        "8": {
+        "layer_8": {
           "tap": "",
           "hold": ""
         },
-        "9": {
+        "layer_9": {
           "tap": "",
           "hold": ""
         },
-        "10": {
+        "layer_10": {
           "tap": "",
           "hold": ""
         },
-        "11": {
+        "layer_11": {
           "tap": "",
           "hold": ""
         },
-        "12": {
+        "layer_12": {
           "tap": "",
           "hold": ""
         },
-        "13": {
+        "layer_13": {
           "tap": "",
           "hold": ""
         },
-        "14": {
+        "layer_14": {
           "tap": "",
           "hold": ""
         },
-        "15": {
+        "layer_15": {
           "tap": "",
           "hold": ""
         }
@@ -1546,5 +1546,89 @@
       "id": 15,
       "name": "Layer 16"
     }
+  ],
+  "namedLayers": [
+    {
+      "id": "layer_0",
+      "name": "Alpha1"
+    },
+    {
+      "id": "layer_1",
+      "name": "Alpha2"
+    },
+    {
+      "id": "layer_2",
+      "name": "Func1"
+    },
+    {
+      "id": "layer_3",
+      "name": "Cursor"
+    },
+    {
+      "id": "layer_4",
+      "name": "Func2"
+    },
+    {
+      "id": "layer_5",
+      "name": "Math"
+    },
+    {
+      "id": "layer_6",
+      "name": "Symbol"
+    },
+    {
+      "id": "layer_7",
+      "name": "Other"
+    },
+    {
+      "id": "layer_8",
+      "name": "Layer 9"
+    },
+    {
+      "id": "layer_9",
+      "name": "Layer 10"
+    },
+    {
+      "id": "layer_10",
+      "name": "Layer 11"
+    },
+    {
+      "id": "layer_11",
+      "name": "Layer 12"
+    },
+    {
+      "id": "layer_12",
+      "name": "Layer 13"
+    },
+    {
+      "id": "layer_13",
+      "name": "Layer 14"
+    },
+    {
+      "id": "layer_14",
+      "name": "Layer 15"
+    },
+    {
+      "id": "layer_15",
+      "name": "Layer 16"
+    }
+  ],
+  "layerMapping": [
+    "layer_0",
+    "layer_1",
+    "layer_3",
+    "layer_2",
+    "layer_4",
+    "layer_5",
+    "layer_6",
+    "layer_7",
+    "layer_8",
+    "layer_9",
+    "layer_10",
+    "layer_11",
+    "layer_12",
+    "layer_13",
+    "layer_14",
+    "layer_15"
   ]
 }

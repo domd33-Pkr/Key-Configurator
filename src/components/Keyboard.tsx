@@ -6,8 +6,8 @@ import './Keyboard.css';
 interface KeyboardProps {
   keys: KeyConfig[];
   selectedKeyIndex: number | null;
-  selectedLayerId: number;
-  layers?: { id: number; name: string }[];
+  selectedLayerId: string;
+  layers?: { id: string | number; name: string }[];
   onKeySelect: (keyData: KeyConfig) => void;
   // Simulation props
   isSimMode?: boolean;

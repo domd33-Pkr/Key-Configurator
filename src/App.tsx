@@ -3,54 +3,98 @@ import type { KeyboardLayoutData, KeyConfig } from './types';
 import { Keyboard } from './components/Keyboard';
 import { EditorPanel } from './components/EditorPanel';
 import defaultLayoutData from './defaultLayout.json';
-import { Keyboard as KeyboardIcon, Undo, Redo, RefreshCw } from 'lucide-react';
-import { parseZmkBinding, getZmkBindingString } from './utils/zmkUtils';
+import { Keyboard as KeyboardIcon, Undo, Redo, RefreshCw, Settings, X } from 'lucide-react';
+import { parseZmkBinding, getZmkBindingString, stringifyZmkBinding } from './utils/zmkUtils';
+import type { NamedLayer } from './types';
+
+const migrateBindingString = (str: string): string => {
+  if (!str) return str;
+  const parsed = parseZmkBinding(str);
+  if (['&mo', '&to', '&tog', '&sl'].includes(parsed.behavior)) {
+    const idx = parseInt(parsed.param1 || '', 10);
+    if (!isNaN(idx) && idx >= 0 && idx < 16) {
+      parsed.param1 = `layer_${idx}`;
+    }
+  } else if (parsed.behavior === '&lt') {
+    const idx = parseInt(parsed.param1 || '', 10);
+    if (!isNaN(idx) && idx >= 0 && idx < 16) {
+      parsed.param1 = `layer_${idx}`;
+    }
+  } else if (parsed.behavior === '&mtl') {
+    const idx1 = parseInt(parsed.param1 || '', 10);
+    if (!isNaN(idx1) && idx1 >= 0 && idx1 < 16) {
+      parsed.param1 = `layer_${idx1}`;
+    }
+    const idx2 = parseInt(parsed.param2 || '', 10);
+    if (!isNaN(idx2) && idx2 >= 0 && idx2 < 16) {
+      parsed.param2 = `layer_${idx2}`;
+    }
+  }
+  return stringifyZmkBinding(parsed);
+};
 
 const migrateLayoutData = (data: any): KeyboardLayoutData => {
-  // Ensure we have a layers array of 16 layers
-  let layers = data.layers;
-  if (!layers || !Array.isArray(layers) || layers.length !== 16) {
-    layers = Array.from({ length: 16 }, (_, i) => ({
-      id: i,
-      name: `Layer ${i + 1}`
-    }));
-  } else {
-    // Make sure we have 16 layers exactly
-    const updatedLayers = [...layers];
-    for (let i = updatedLayers.length; i < 16; i++) {
-      updatedLayers.push({ id: i, name: `Layer ${i + 1}` });
+  // 1. Get or generate namedLayers (always 16 named layers)
+  let namedLayers: NamedLayer[] = data.namedLayers;
+  if (!namedLayers || !Array.isArray(namedLayers) || namedLayers.length !== 16) {
+    if (data.layers && Array.isArray(data.layers)) {
+      namedLayers = data.layers.map((l: any) => ({
+        id: `layer_${l.id}`,
+        name: l.name || `Layer ${l.id + 1}`
+      }));
+    } else {
+      namedLayers = Array.from({ length: 16 }, (_, i) => ({
+        id: `layer_${i}`,
+        name: `Layer ${i + 1}`
+      }));
     }
-    layers = updatedLayers.slice(0, 16);
+    for (let i = namedLayers.length; i < 16; i++) {
+      namedLayers.push({ id: `layer_${i}`, name: `Layer ${i + 1}` });
+    }
+    namedLayers = namedLayers.slice(0, 16);
   }
 
+  // 2. Get or generate layerMapping
+  let layerMapping: string[] = data.layerMapping;
+  if (!layerMapping || !Array.isArray(layerMapping) || layerMapping.length !== 16) {
+    layerMapping = Array.from({ length: 16 }, (_, i) => `layer_${i}`);
+  }
+
+  // 3. Migrate keys and their bindings
   const keys = data.keys.map((key: any) => {
-    // If the key already has bindings, make sure it has exactly 16 layers mapped
-    const bindings: Record<number, { tap?: string; hold?: string }> = {};
+    const bindings: Record<string, { tap?: string; hold?: string }> = {};
+
     for (let i = 0; i < 16; i++) {
-      if (key.bindings && key.bindings[i]) {
-        bindings[i] = {
-          tap: key.bindings[i].tap || '',
-          hold: key.bindings[i].hold || ''
-        };
-      } else {
-        bindings[i] = { tap: '', hold: '' };
-      }
+      bindings[`layer_${i}`] = { tap: '', hold: '' };
     }
 
-    // If old slots exist and bindings for Layer 1/2 are empty, migrate them
-    if (key.slots) {
-      if (!bindings[0].tap && !bindings[0].hold) {
-        bindings[0] = {
-          tap: key.slots.base_tap || '',
-          hold: key.slots.base_hold || ''
-        };
-      }
-      if (!bindings[1].tap && !bindings[1].hold) {
-        bindings[1] = {
-          tap: key.slots.layer_tap || '',
-          hold: key.slots.layer_hold || ''
-        };
-      }
+    if (key.bindings) {
+      Object.keys(key.bindings).forEach(k => {
+        const val = key.bindings[k];
+        if (/^\d+$/.test(k)) {
+          const idx = parseInt(k, 10);
+          if (idx >= 0 && idx < 16) {
+            bindings[`layer_${idx}`] = {
+              tap: migrateBindingString(val.tap || ''),
+              hold: migrateBindingString(val.hold || '')
+            };
+          }
+        } else {
+          bindings[k] = {
+            tap: migrateBindingString(val.tap || ''),
+            hold: migrateBindingString(val.hold || '')
+          };
+        }
+      });
+    } else if (key.slots) {
+      bindings['layer_0'] = {
+        tap: migrateBindingString(key.slots.base_tap || ''),
+        hold: migrateBindingString(key.slots.base_hold || '')
+      };
+      bindings['layer_1'] = {
+        tap: migrateBindingString(key.slots.layer_tap || ''),
+        hold: migrateBindingString(key.slots.layer_hold || '')
+      };
     }
 
     return {
@@ -62,7 +106,8 @@ const migrateLayoutData = (data: any): KeyboardLayoutData => {
   return {
     ...data,
     keys,
-    layers
+    namedLayers,
+    layerMapping
   };
 };
 
@@ -147,7 +192,8 @@ function App() {
     return migrateLayoutData(defaultLayoutData);
   });
   const [selectedKeyIndex, setSelectedKeyIndex] = useState<number | null>(null);
-  const [selectedLayerId, setSelectedLayerId] = useState<number>(0);
+  const [selectedNamedLayerId, setSelectedNamedLayerId] = useState<string>("layer_0");
+  const [showPriorityModal, setShowPriorityModal] = useState<boolean>(false);
 
   // Undo/Redo history states
   const [past, setPast] = useState<KeyboardLayoutData[]>([]);
@@ -265,19 +311,21 @@ function App() {
 
   useEffect(() => {
     if (isSimMode) {
-      setSimBaseLayerId(selectedLayerId);
-      setSimActiveLayerId(selectedLayerId);
+      const physicalIndex = layoutData.layerMapping?.indexOf(selectedNamedLayerId) ?? 0;
+      const baseIdx = physicalIndex !== -1 ? physicalIndex : 0;
+      setSimBaseLayerId(baseIdx);
+      setSimActiveLayerId(baseIdx);
       setHeldKeys(new Set());
       setLockedKeys(new Set());
       setActiveMods(new Set());
       setStickyMods(new Set());
       setStickyLayerId(null);
     }
-  }, [isSimMode, selectedLayerId]);
+  }, [isSimMode, selectedNamedLayerId, layoutData.layerMapping]);
 
   const selectedKey = layoutData.keys.find(k => k.index === selectedKeyIndex) || null;
-  const layersList = layoutData.layers || [];
-  const selectedLayerName = layersList.find(l => l.id === selectedLayerId)?.name || `Layer ${selectedLayerId + 1}`;
+  const layersList = layoutData.namedLayers || [];
+  const selectedLayerName = layersList.find(l => l.id === selectedNamedLayerId)?.name || `Layer ${selectedNamedLayerId}`;
 
   const handleUpdateKey = (updatedKey: KeyConfig) => {
     pushToHistoryAndSet(prev => {
@@ -286,10 +334,10 @@ function App() {
     });
   };
 
-  const handleRenameLayer = (layerId: number, newName: string) => {
+  const handleRenameLayer = (layerId: string, newName: string) => {
     pushToHistoryAndSet(prev => {
-      const newLayers = (prev.layers || []).map(l => l.id === layerId ? { ...l, name: newName } : l);
-      return { ...prev, layers: newLayers };
+      const newLayers = (prev.namedLayers || []).map(l => l.id === layerId ? { ...l, name: newName } : l);
+      return { ...prev, namedLayers: newLayers };
     });
   };
 
@@ -361,7 +409,8 @@ function App() {
   const getBindingForKey = (keyIndex: number, layerId: number): string => {
     const key = layoutData.keys.find(k => k.index === keyIndex);
     if (!key) return '&trans';
-    const binding = key.bindings?.[layerId];
+    const namedLayerId = layoutData.layerMapping?.[layerId] || `layer_${layerId}`;
+    const binding = key.bindings?.[namedLayerId];
     return getZmkBindingString(binding);
   };
 
@@ -453,7 +502,9 @@ function App() {
       }
 
       case '&sl': {
-        const targetLayer = parseInt(parsed.param1 || '0', 10);
+        const targetLayerId = parsed.param1 || 'layer_0';
+        const targetLayerIdx = layoutData.layerMapping?.indexOf(targetLayerId) ?? 0;
+        const targetLayer = targetLayerIdx !== -1 ? targetLayerIdx : 0;
         setStickyLayerId(targetLayer);
         setSimActiveLayerId(targetLayer);
         break;
@@ -470,7 +521,9 @@ function App() {
       }
 
       case '&to': {
-        const targetLayer = parseInt(parsed.param1 || '0', 10);
+        const targetLayerId = parsed.param1 || 'layer_0';
+        const targetLayerIdx = layoutData.layerMapping?.indexOf(targetLayerId) ?? 0;
+        const targetLayer = targetLayerIdx !== -1 ? targetLayerIdx : 0;
         setSimBaseLayerId(targetLayer);
         setSimActiveLayerId(targetLayer);
         clearStickyStates();
@@ -478,7 +531,9 @@ function App() {
       }
 
       case '&tog': {
-        const targetLayer = parseInt(parsed.param1 || '0', 10);
+        const targetLayerId = parsed.param1 || 'layer_0';
+        const targetLayerIdx = layoutData.layerMapping?.indexOf(targetLayerId) ?? 0;
+        const targetLayer = targetLayerIdx !== -1 ? targetLayerIdx : 0;
         setSimBaseLayerId(prev => {
           const next = prev === targetLayer ? 0 : targetLayer;
           setSimActiveLayerId(next);
@@ -489,7 +544,9 @@ function App() {
       }
 
       case '&mtl': {
-        const tapLayer = parseInt(parsed.param2 || '0', 10);
+        const tapLayerId = parsed.param2 || 'layer_0';
+        const tapLayerIdx = layoutData.layerMapping?.indexOf(tapLayerId) ?? 0;
+        const tapLayer = tapLayerIdx !== -1 ? tapLayerIdx : 0;
         setStickyLayerId(tapLayer);
         setSimActiveLayerId(tapLayer);
         break;
@@ -528,13 +585,17 @@ function App() {
       }
 
       case '&mo': {
-        const targetLayer = parseInt(parsed.param1 || '0', 10);
+        const targetLayerId = parsed.param1 || 'layer_0';
+        const targetLayerIdx = layoutData.layerMapping?.indexOf(targetLayerId) ?? 0;
+        const targetLayer = targetLayerIdx !== -1 ? targetLayerIdx : 0;
         setSimActiveLayerId(targetLayer);
         break;
       }
 
       case '&lt': {
-        const targetLayer = parseInt(parsed.param1 || '0', 10);
+        const targetLayerId = parsed.param1 || 'layer_0';
+        const targetLayerIdx = layoutData.layerMapping?.indexOf(targetLayerId) ?? 0;
+        const targetLayer = targetLayerIdx !== -1 ? targetLayerIdx : 0;
         setSimActiveLayerId(targetLayer);
         break;
       }
@@ -592,7 +653,9 @@ function App() {
       }
 
       case '&mtl': {
-        const holdLayer = parseInt(parsed.param1 || '0', 10);
+        const holdLayerId = parsed.param1 || 'layer_0';
+        const holdLayerIdx = layoutData.layerMapping?.indexOf(holdLayerId) ?? 0;
+        const holdLayer = holdLayerIdx !== -1 ? holdLayerIdx : 0;
         setSimActiveLayerId(holdLayer);
         break;
       }
@@ -896,8 +959,8 @@ function App() {
           <div className="layer-selector-bar glass-panel" style={{ display: 'flex', alignItems: 'center', gap: 16, padding: '16px 24px', width: '100%', borderRadius: 16 }}>
             <span style={{ fontWeight: 600, color: 'var(--text-secondary)', fontSize: 14 }}>Select Layer:</span>
             <select 
-              value={selectedLayerId} 
-              onChange={(e) => setSelectedLayerId(Number(e.target.value))}
+              value={selectedNamedLayerId} 
+              onChange={(e) => setSelectedNamedLayerId(e.target.value)}
               style={{
                 backgroundColor: 'rgba(0, 0, 0, 0.3)',
                 border: '1px solid var(--border-color)',
@@ -917,8 +980,8 @@ function App() {
             <span style={{ fontWeight: 600, color: 'var(--text-secondary)', fontSize: 14, marginLeft: 'auto' }}>Rename:</span>
             <input 
               type="text" 
-              value={layersList.find(l => l.id === selectedLayerId)?.name || ''} 
-              onChange={(e) => handleRenameLayer(selectedLayerId, e.target.value)}
+              value={layersList.find(l => l.id === selectedNamedLayerId)?.name || ''} 
+              onChange={(e) => handleRenameLayer(selectedNamedLayerId, e.target.value)}
               style={{
                 backgroundColor: 'rgba(0, 0, 0, 0.3)',
                 border: '1px solid var(--border-color)',
@@ -930,12 +993,30 @@ function App() {
                 width: '200px'
               }}
             />
+
+            <button
+              className="btn btn-secondary"
+              onClick={() => setShowPriorityModal(true)}
+              style={{
+                padding: '8px 16px',
+                borderRadius: 8,
+                display: 'flex',
+                alignItems: 'center',
+                gap: 6,
+                fontSize: 14,
+                height: 38,
+                marginLeft: 12
+              }}
+            >
+              <Settings size={16} />
+              Priorités...
+            </button>
           </div>
 
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flex: 1 }}>
             <Keyboard 
               keys={layoutData.keys} 
-              selectedLayerId={isSimMode ? simActiveLayerId : selectedLayerId}
+              selectedLayerId={isSimMode ? (layoutData.layerMapping?.[simActiveLayerId] || 'layer_0') : selectedNamedLayerId}
               selectedKeyIndex={selectedKeyIndex} 
               layers={layersList}
               onKeySelect={(k) => setSelectedKeyIndex(k.index)} 
@@ -954,7 +1035,10 @@ function App() {
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
                   <span style={{ fontWeight: 600, fontSize: 16, color: '#f59e0b' }}>📺 Console de Test</span>
                   <span className="badge" style={{ backgroundColor: 'rgba(59, 130, 246, 0.2)', border: '1px solid rgba(59, 130, 246, 0.4)', color: '#93c5fd', padding: '4px 10px', borderRadius: 12, fontSize: 12 }}>
-                    Couche Active : {layersList.find(l => l.id === simActiveLayerId)?.name || `Layer ${simActiveLayerId + 1}`}
+                    Couche Active : {(() => {
+                      const activeNamedLayerId = layoutData.layerMapping?.[simActiveLayerId] || 'layer_0';
+                      return layersList.find(l => l.id === activeNamedLayerId)?.name || `Layer ${simActiveLayerId + 1}`;
+                    })()}
                   </span>
                   {activeMods.size > 0 && (
                     <span className="badge" style={{ backgroundColor: 'rgba(245, 158, 11, 0.2)', border: '1px solid rgba(245, 158, 11, 0.4)', color: '#fcd34d', padding: '4px 10px', borderRadius: 12, fontSize: 12 }}>
@@ -968,7 +1052,10 @@ function App() {
                   )}
                   {stickyLayerId !== null && (
                     <span className="badge" style={{ backgroundColor: 'rgba(139, 92, 246, 0.2)', border: '1px solid rgba(139, 92, 246, 0.4)', color: '#ddd6fe', padding: '4px 10px', borderRadius: 12, fontSize: 12 }}>
-                      Sticky Layer: {layersList.find(l => l.id === stickyLayerId)?.name || `Layer ${stickyLayerId + 1}`}
+                      Sticky Layer: {(() => {
+                        const stickyNamedLayerId = layoutData.layerMapping?.[stickyLayerId] || 'layer_0';
+                        return layersList.find(l => l.id === stickyNamedLayerId)?.name || `Layer ${stickyLayerId + 1}`;
+                      })()}
                     </span>
                   )}
                 </div>
@@ -1065,17 +1152,247 @@ function App() {
             </div>
           ) : (
             <EditorPanel 
-              key={selectedKey ? `${selectedKey.index}-${selectedLayerId}` : 'empty'}
+              key={selectedKey ? `${selectedKey.index}-${selectedNamedLayerId}` : 'empty'}
               selectedKey={selectedKey} 
-              selectedLayerId={selectedLayerId}
+              selectedLayerId={selectedNamedLayerId}
               selectedLayerName={selectedLayerName}
-              layers={layoutData.layers || []}
+              layers={layoutData.namedLayers || []}
               onUpdateKey={handleUpdateKey}
               onClose={() => setSelectedKeyIndex(null)}
             />
           )}
         </div>
       </main>
+
+      {showPriorityModal && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(15, 23, 42, 0.8)',
+          backdropFilter: 'blur(8px)',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          zIndex: 1000,
+          padding: 20
+        }}>
+          <div className="glass-panel" style={{
+            width: '100%',
+            maxWidth: '650px',
+            maxHeight: '90vh',
+            display: 'flex',
+            flexDirection: 'column',
+            borderRadius: '20px',
+            border: '1px solid var(--border-color)',
+            backgroundColor: '#1e293b',
+            boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.5)',
+            overflow: 'hidden'
+          }}>
+            {/* Header */}
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              padding: '20px 24px',
+              borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+              background: 'rgba(30, 41, 59, 0.6)'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <Settings size={20} style={{ color: '#3b82f6' }} />
+                <h2 style={{ margin: 0, fontSize: '18px', fontWeight: 600, color: 'var(--text-primary)' }}>Priorités des Layers</h2>
+              </div>
+              <button 
+                onClick={() => setShowPriorityModal(false)}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  color: 'var(--text-secondary)',
+                  cursor: 'pointer',
+                  padding: 4,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            {/* Content */}
+            <div style={{
+              padding: '24px',
+              overflowY: 'auto',
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 16
+            }}>
+              <p style={{ margin: 0, fontSize: '14px', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+                Assignez vos couches nommées aux 16 layers physiques de ZMK. L'ordre définit la priorité : 
+                la couche 16 (la plus haute) a la priorité maximale pour la résolution des touches.
+              </p>
+
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 8,
+                marginTop: 8
+              }}>
+                {(layoutData.layerMapping || []).slice().reverse().map((namedLayerId, reversedIdx) => {
+                  const physicalIdx = 15 - reversedIdx;
+                  
+                  const handleMappingChange = (newId: string) => {
+                    pushToHistoryAndSet(prev => {
+                      const newMapping = [...(prev.layerMapping || [])];
+                      newMapping[physicalIdx] = newId;
+                      return { ...prev, layerMapping: newMapping };
+                    });
+                  };
+
+                  const handleMoveUp = () => {
+                    if (physicalIdx === 15) return;
+                    pushToHistoryAndSet(prev => {
+                      const newMapping = [...(prev.layerMapping || [])];
+                      const temp = newMapping[physicalIdx];
+                      newMapping[physicalIdx] = newMapping[physicalIdx + 1];
+                      newMapping[physicalIdx + 1] = temp;
+                      return { ...prev, layerMapping: newMapping };
+                    });
+                  };
+
+                  const handleMoveDown = () => {
+                    if (physicalIdx === 0) return;
+                    pushToHistoryAndSet(prev => {
+                      const newMapping = [...(prev.layerMapping || [])];
+                      const temp = newMapping[physicalIdx];
+                      newMapping[physicalIdx] = newMapping[physicalIdx - 1];
+                      newMapping[physicalIdx - 1] = temp;
+                      return { ...prev, layerMapping: newMapping };
+                    });
+                  };
+
+                  return (
+                    <div 
+                      key={physicalIdx}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        padding: '10px 16px',
+                        backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                        border: '1px solid rgba(255, 255, 255, 0.05)',
+                        borderRadius: '10px',
+                        gap: 16
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                        <span style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          width: '28px',
+                          height: '28px',
+                          borderRadius: '6px',
+                          backgroundColor: physicalIdx === 0 ? 'rgba(59, 130, 246, 0.2)' : 'rgba(255, 255, 255, 0.05)',
+                          color: physicalIdx === 0 ? '#60a5fa' : 'var(--text-secondary)',
+                          fontSize: '12px',
+                          fontWeight: 'bold'
+                        }}>
+                          {physicalIdx + 1}
+                        </span>
+                        <span style={{ fontSize: '14px', fontWeight: 500, color: 'var(--text-primary)' }}>
+                          ZMK Layer {physicalIdx}
+                        </span>
+                      </div>
+
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 12, flex: 1, justifyContent: 'flex-end' }}>
+                        <select
+                          value={namedLayerId}
+                          onChange={(e) => handleMappingChange(e.target.value)}
+                          style={{
+                            backgroundColor: 'rgba(15, 23, 42, 0.6)',
+                            border: '1px solid var(--border-color)',
+                            borderRadius: '8px',
+                            color: 'var(--text-primary)',
+                            padding: '6px 12px',
+                            fontSize: '14px',
+                            outline: 'none',
+                            cursor: 'pointer',
+                            minWidth: '180px'
+                          }}
+                        >
+                          {(layoutData.namedLayers || []).map(layer => (
+                            <option key={layer.id} value={layer.id}>
+                              {layer.name}
+                            </option>
+                          ))}
+                        </select>
+
+                        <div style={{ display: 'flex', gap: 4 }}>
+                          <button
+                            onClick={handleMoveUp}
+                            disabled={physicalIdx === 15}
+                            title="Augmenter la priorité (Monter)"
+                            style={{
+                              padding: '6px 8px',
+                              borderRadius: '6px',
+                              border: 'none',
+                              backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                              color: physicalIdx === 15 ? 'rgba(255,255,255,0.1)' : 'var(--text-secondary)',
+                              cursor: physicalIdx === 15 ? 'not-allowed' : 'pointer',
+                              display: 'flex',
+                              alignItems: 'center'
+                            }}
+                          >
+                            ▲
+                          </button>
+                          <button
+                            onClick={handleMoveDown}
+                            disabled={physicalIdx === 0}
+                            title="Diminuer la priorité (Descendre)"
+                            style={{
+                              padding: '6px 8px',
+                              borderRadius: '6px',
+                              border: 'none',
+                              backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                              color: physicalIdx === 0 ? 'rgba(255,255,255,0.1)' : 'var(--text-secondary)',
+                              cursor: physicalIdx === 0 ? 'not-allowed' : 'pointer',
+                              display: 'flex',
+                              alignItems: 'center'
+                            }}
+                          >
+                            ▼
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Footer */}
+            <div style={{
+              padding: '16px 24px',
+              borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+              background: 'rgba(30, 41, 59, 0.6)',
+              display: 'flex',
+              justifyContent: 'flex-end'
+            }}>
+              <button 
+                className="btn btn-primary"
+                onClick={() => setShowPriorityModal(false)}
+                style={{ padding: '8px 20px', borderRadius: 8 }}
+              >
+                Fermer
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

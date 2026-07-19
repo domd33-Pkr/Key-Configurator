@@ -7,8 +7,8 @@ import { getZmkBindingString, parseBindingForDisplay } from '../utils/zmkUtils';
 interface KeyCapProps {
   keyData: KeyConfig;
   isSelected: boolean;
-  selectedLayerId: number;
-  layers?: { id: number; name: string }[];
+  selectedLayerId: string;
+  layers?: { id: string | number; name: string }[];
   onClick: (keyData: KeyConfig) => void;
   // Simulation props
   isSimMode?: boolean;
@@ -41,12 +41,12 @@ export const KeyCap: React.FC<KeyCapProps> = ({
     bindingStr = getZmkBindingString(binding);
   } else if (keyData.slots) {
     // Fallback for backward compatibility
-    if (selectedLayerId === 0) {
+    if (selectedLayerId === 'layer_0' || selectedLayerId === '0') {
       bindingStr = getZmkBindingString({
         tap: keyData.slots.base_tap,
         hold: keyData.slots.base_hold
       });
-    } else if (selectedLayerId === 1) {
+    } else if (selectedLayerId === 'layer_1' || selectedLayerId === '1') {
       bindingStr = getZmkBindingString({
         tap: keyData.slots.layer_tap,
         hold: keyData.slots.layer_hold

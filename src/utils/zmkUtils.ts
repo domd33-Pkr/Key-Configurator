@@ -162,7 +162,7 @@ export const stringifyKeyParam = (keycode: string, modifier: string): string => 
   return `${m}(${k})`;
 };
 
-export const parseBindingForDisplay = (bindingStr: string, layers?: {id: number; name: string}[]): { tap: string; hold: string } => {
+export const parseBindingForDisplay = (bindingStr: string, layers?: {id: string | number; name: string}[]): { tap: string; hold: string } => {
   if (!bindingStr) {
     return { tap: '', hold: '' };
   }
@@ -170,18 +170,23 @@ export const parseBindingForDisplay = (bindingStr: string, layers?: {id: number;
   const behavior = parts[0];
 
   const getLayerDisplay = (layerIdStr: string, prefix: string = '') => {
-    const id = parseInt(layerIdStr || '0', 10);
     if (layers && layers.length > 0) {
-      const layer = layers.find(l => l.id === id);
+      const layer = layers.find(l => String(l.id) === layerIdStr);
       if (layer && layer.name) {
         // If the layer is named "Layer X", just show LX, otherwise show the name
         if (layer.name.match(/^Layer\s*\d+$/i)) {
-          return `${prefix}L${id}`;
+          const displayId = layerIdStr.startsWith('layer_') ? layerIdStr.replace('layer_', '') : layerIdStr;
+          return `${prefix}L${displayId}`;
         }
         return layer.name;
       }
     }
-    return `${prefix}L${id}`;
+    // Fallback if not found or id is physical index
+    const id = parseInt(layerIdStr || '0', 10);
+    if (!isNaN(id) && layers && layers[id]) {
+      return layers[id].name;
+    }
+    return `${prefix}L${layerIdStr}`;
   };
 
   let tap = '';

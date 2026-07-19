@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import type { KeyConfig, LayerConfig } from '../types';
+import type { KeyConfig, NamedLayer } from '../types';
 import { Settings, X, Keyboard as KeyboardIcon, ChevronDown, Check, Sparkles, Code } from 'lucide-react';
 import { getZmkBindingString, parseZmkBinding, stringifyZmkBinding, parseKeyParam, stringifyKeyParam } from '../utils/zmkUtils';
 import type { ZmkBinding } from '../utils/zmkUtils';
@@ -484,9 +484,9 @@ const SearchableSelect: React.FC<SearchableSelectProps> = ({
 
 interface EditorPanelProps {
   selectedKey: KeyConfig | null;
-  selectedLayerId: number;
+  selectedLayerId: string;
   selectedLayerName: string;
-  layers: LayerConfig[];
+  layers: NamedLayer[];
   onUpdateKey: (updatedKey: KeyConfig) => void;
   onClose: () => void;
 }
@@ -724,7 +724,7 @@ export const EditorPanel: React.FC<EditorPanelProps> = ({
             >
               {layers.map(layer => (
                 <option key={layer.id} value={layer.id}>
-                  {layer.name} (layer {layer.id})
+                  {layer.name}
                 </option>
               ))}
             </select>
@@ -868,7 +868,7 @@ export const EditorPanel: React.FC<EditorPanelProps> = ({
               >
                 {layers.map(layer => (
                   <option key={layer.id} value={layer.id}>
-                    {layer.name} (layer {layer.id})
+                    {layer.name}
                   </option>
                 ))}
               </select>
@@ -883,7 +883,7 @@ export const EditorPanel: React.FC<EditorPanelProps> = ({
               >
                 {layers.map(layer => (
                   <option key={layer.id} value={layer.id}>
-                    {layer.name} (layer {layer.id})
+                    {layer.name}
                   </option>
                 ))}
               </select>
