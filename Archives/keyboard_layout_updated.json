@@ -979,7 +979,7 @@
           "hold": ""
         },
         "layer_2": {
-          "tap": "&kp LS(ENTER)",
+          "tap": "&kp ENTER",
           "hold": ""
         },
         "layer_3": {
@@ -1053,7 +1053,7 @@
           "hold": "&kp Y"
         },
         "layer_2": {
-          "tap": "&kp LS(TAB)",
+          "tap": "&trans",
           "hold": ""
         },
         "layer_3": {
@@ -1127,7 +1127,7 @@
           "hold": ""
         },
         "layer_2": {
-          "tap": "&kp ENTER",
+          "tap": "&kp TAB",
           "hold": ""
         },
         "layer_3": {
@@ -1201,7 +1201,7 @@
           "hold": "&kp J"
         },
         "layer_2": {
-          "tap": "&kp TAB",
+          "tap": "&trans",
           "hold": ""
         },
         "layer_3": {
